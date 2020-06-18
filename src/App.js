@@ -30,8 +30,12 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles((theme) => ({
     app: {
-        // backgroundColor: theme.primary,
+        backgroundColor: 'red',
         minHeight: '100vh',
+
+    },
+    box: {
+        minHeight: '50vh',
 
     },
 }));
@@ -53,7 +57,12 @@ export default function App() {
                     maxWidth="lg"
                     fixed={true}
                 >
-
+                    <Box
+                        className={classes.box}
+                        maxWidth="lg"
+                        bgcolor="primary.light"
+                    >
+                    </Box>
                     
                 </Container>
 
