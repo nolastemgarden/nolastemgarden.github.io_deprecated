@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/nolastemgarden.github.io/precache-manifest.1f522a2a888656ad4a24082013639576.js"
+  "/nolastemgarden.github.io/precache-manifest.9c48bf0c32698d62ffb6541dd594737d.js"
 );
 
 self.addEventListener('message', (event) => {
