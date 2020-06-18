@@ -1,28 +1,63 @@
 import React from 'react';
+
+
+
 import CssBaseline from '@material-ui/core/CssBaseline';
-import logo from './logo.svg';
+import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
+// import CssBaseline from '@material-ui/core/CssBaseline';
+
+
+import {createMuiTheme, 
+        makeStyles, 
+        ThemeProvider } from '@material-ui/core/styles';
+
 import './App.css';
 
+import purple from '@material-ui/core/colors/purple';
+import green from '@material-ui/core/colors/green';
+import { Button, createStyles } from '@material-ui/core';
+
+const theme = createMuiTheme({
+    palette: {
+        primary: purple,
+        secondary: green,
+    },
+    status: {
+        danger: 'orange',
+    },
+});
+
+const useStyles = makeStyles((theme) => ({
+    app: {
+        // backgroundColor: theme.primary,
+        minHeight: '100vh',
+
+    },
+}));
+
+
+
 export default function App() {
+    const classes = useStyles();
+
     return (
+        
+        
         <React.Fragment>
             <CssBaseline />
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <p>
-                        Edit <code>src/App.js</code> and save to reload.
-                    </p>
-                    <a
-                        className="App-link"
-                        href="https://reactjs.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Learn React
-                    </a>
-                </header>
-            </div>
+            <ThemeProvider theme={theme}>
+                
+                <Container 
+                    className={classes.app}
+                    maxWidth="lg"
+                    fixed={true}
+                >
+
+                    
+                </Container>
+
+            </ThemeProvider>
         </React.Fragment>
     );
     
