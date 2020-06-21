@@ -59,7 +59,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-// The app is a router that can lead to the landing page, the contact page, or one of the sub-routers for /teach /garden  /program & /blog
+// App.js provides the Theme and Routing between pages
+
 export default function App() {
     const classes = useStyles();
 
