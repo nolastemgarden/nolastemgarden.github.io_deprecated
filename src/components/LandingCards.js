@@ -29,11 +29,23 @@ const useStyles = makeStyles((theme) => ({
     card: {
         height: '600px',
         width: '100%',
-        backgroundColor: theme.palette.common.white,
-        padding: '0px'
+        // color: theme.palette.common.white,
+        // backgroundColor: theme.palette.common.black,
+        // backgroundColor: theme.palette.common.white,
+        // backgroundColor: theme.palette.primary.light,
+        // backgroundColor: '#444',
+        backgroundColor: '#ddd',
+        padding: '0px',
+        display:  'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+
 
     },
-
+    cardImage: {
+        height: 'auto',
+        width: '100%',
+    }
 
 }));
 
@@ -42,51 +54,53 @@ export default function LandingCards(props) {
 
     return (
         <Grid container 
+            id='grid'
             maxWidth='lg'
             spacing={2}
         >
             {/* TUTORING SERVICES */}
-            <Grid item xs={6} lg={3} >
+            <Grid item xs={6} md={3} >
                 <Card className={classes.card}>
-                    <CardActionArea>
-                        <CardMedia
-                            component="img"
-                            alt="Contemplative Reptile"
-                            height="100%"
-                            width="auto"
-                            image={balancescale}
-                            title="Contemplative Reptile"
-                        />
-                        <CardContent>
-                            <Typography 
-                                gutterBottom 
-                                variant="h6" 
-                                component="h2"
+                
+                    <CardMedia
+                        className={classes.cardImage}
+                        component="img"
+                        alt="Contemplative Reptile"
+                        height="100%"
+                        width="auto"
+                        image={balancescale}
+                        title="Contemplative Reptile"
+                    />
+                    <CardContent>
+                        <Typography 
+                            gutterBottom 
+                            variant="h6" 
+                            component="h2"
 
-                            >
-                                Tutoring
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                Feeling lost in math class? I have helped students from over 15 New Oreleans schools get back on track with K-12 Common Core Math Curriculum
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary">
-                            Share
-                        </Button>
-                        <Button size="small" color="primary">
-                            Learn More
-                        </Button>
-                    </CardActions>
+                        >
+                            Tutoring
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                            Feeling lost in math class? I have helped students from over 15 New Oreleans schools get back on track with K-12 Common Core Math Curriculum
+                        </Typography>
+                    </CardContent>
+                
+                    <Button size="small" color="primary">
+                        Share
+                    </Button>
+                    <Button size="small" color="primary">
+                        Learn More
+                    </Button>
+                    
                 </Card>
             </Grid>
 
             {/* TEST PREP */}
-            <Grid item xs={6} lg={3} >
+            <Grid item xs={6} md={3} >
                 <Card className={classes.card}>
                     <CardActionArea>
                         <CardMedia
+                            className={classes.cardImage}
                             component="img"
                             alt="Contemplative Reptile"
                             height="100%"
@@ -119,10 +133,11 @@ export default function LandingCards(props) {
 
 
             {/* TUTORING SERVICES */}
-            <Grid item xs={6} lg={3} >
+            <Grid item xs={6} md={3} >
                 <Card className={classes.card}>
                     <CardActionArea>
                         <CardMedia
+                            className={classes.cardImage}
                             component="img"
                             alt="Contemplative Reptile"
                             height="100%"
@@ -150,10 +165,11 @@ export default function LandingCards(props) {
                 </Card>
             </Grid>
 
-            <Grid item xs={6} lg={3} >
+            <Grid item xs={6} md={3} >
                 <Card className={classes.card}>
                     <CardActionArea>
                         <CardMedia
+                            className={classes.cardImage}
                             component="img"
                             alt="Contemplative Reptile"
                             height="140"
