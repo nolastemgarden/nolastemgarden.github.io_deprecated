@@ -6,8 +6,7 @@ import {
     Switch
 } from "react-router-dom";
 
-// MY Imports
-import Navbar from "./components/Navbar";
+// MY components
 import LandingPage from "./pages/Landing";
 import TeachPage from "./pages/Teach";
 import GardenPage from "./pages/Garden";
@@ -69,8 +68,6 @@ export default function App() {
             <CssBaseline />
             <ThemeProvider theme={theme}>
                 <Router basename='/'>
-                    <Navbar />
-                    
                     <Switch>
                         
                         <Route exact path="/">
