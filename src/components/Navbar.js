@@ -16,34 +16,61 @@ import { Menu,
     Divider,
     } from '@material-ui/core';
 
+// MATERIAL-UI ICONS
+import MenuIcon from '@material-ui/icons/Menu';
+
+
+
 import { makeStyles } from '@material-ui/core/styles';
 import { findAllByPlaceholderText } from '@testing-library/react';
 
 const useStyles = makeStyles((theme) => ({
     navbar: {
-        width: '100%',
+        width: '100vw',
         backgroundColor: theme.palette.primary.main, // Matches Logo Background
-        // position: 'fixed',
-        // left: '0',
-        // position: handled by the MUI app bar b/c it actualy works with 'sticky'.
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        color: '#fff',
     },
+    navbarContainer: {
+        width: '100vw',
+        backgroundColor: theme.palette.primary.main, // Matches Logo Background
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+
+    },
+    brandName: {
+
+    },
+    menuButton: {
+        color: theme.palette.common.white
+    }
+
 }));
 
 export default function Navbar(props) {
     const classes = useStyles();
     return (
-        <AppBar position="sticky" className={classes.navbar}>
-            <div className={classes.root}>
-                <img className={classes.logo} src={logo} alt="Logo" />
-                <Typography className={classes.brand}>
+        <AppBar 
+            position = "sticky" 
+            className = {classes.navbar}
+            elevation = '0'
+        >
+            <Container className={classes.navbarContainer} maxWidth='md'>
+                
+                <Typography 
+                    className={classes.brandName}
+                    variant='h4'
+                >
                     Nola Stem Garden
                 </Typography>
-                {/* <div className={classes.spacer}></div> */}
-                {/* <MenuDrawer className={classes.menuRoot} /> */}
-                {/* <SimpleMenu /> */}
-            </div>
+                
+                <SimpleMenu />
+            
+            </Container>
         </AppBar>
-
     );
 }
 
@@ -64,12 +91,12 @@ function SimpleMenu() {
     return (
         <div className={classes.menu}>
             <Button
+                className={classes.menuButton}
                 aria-controls="simple-menu"
                 aria-haspopup="true"
                 onClick={handleClick}
-                className={classes.menuButton}
             >
-                {/* <MenuIcon className={classes.menuIcon} /> */}
+                <MenuIcon className={classes.menuIcon} />
             </Button>
 
 
