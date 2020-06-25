@@ -155,7 +155,7 @@ export default function LandingCards(props) {
                                 About the Garden
                             </Typography>
                             <Typography variant="body2" color="textSecondary" component="p">
-                                Established in 2016, the garden started as a trashed lot and has gradually evolved into an oasis of tumeric and fruit trees.
+                                Established in 2016, the garden started as a blighted lot and has gradually evolved into an oasis of turmeric and fruit trees.
                             </Typography>
                         </CardContent>
                     </CardActionArea>
