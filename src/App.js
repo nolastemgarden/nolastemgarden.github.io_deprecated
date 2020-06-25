@@ -10,8 +10,9 @@ import {
 import LandingPage from "./pages/Landing";
 import TeachPage from "./pages/Teach";
 import GardenPage from "./pages/Garden";
+import AboutMePage from "./pages/AboutMe";
 import ProgramPage from "./pages/Program";
-import ContactPage from "./pages/Contact";
+// import ContactPage from "./pages/Contact";
 
 //  MUI imports
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -20,31 +21,12 @@ import Container from '@material-ui/core/Container';
 // import CssBaseline from '@material-ui/core/CssBaseline';
 
 
+import theme from "./theme";
 import {
-    createMuiTheme, 
     makeStyles, 
     ThemeProvider } from '@material-ui/core/styles';
 
 import './App.css';
-
-
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
-// import { Button, createStyles } from '@material-ui/core';
-
-const theme = createMuiTheme({
-    palette: {
-        primary: {
-            light: '#678b41',
-            main: '#3a5e16',
-            dark: '#123400',
-        },
-        secondary: green,
-    },
-    status: {
-        danger: 'orange',
-    },
-});
 
 const useStyles = makeStyles((theme) => ({
     app: {
@@ -82,13 +64,17 @@ export default function App() {
                         <GardenPage />
                         </Route> 
 
-                        <Route path="/program">
+                        <Route path="/about_me">
+                            <AboutMePage />
+                        </Route> 
+
+                        <Route path="/program_portfolio">
                         <ProgramPage />
                         </Route> 
 
-                        <Route path="/contact">
+                        {/* <Route path="/contact">
                         <ContactPage />
-                        </Route>
+                        </Route>  */}
                         
                     </Switch>
                 </Router>
