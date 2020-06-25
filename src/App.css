@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.MuiCardActionArea-root {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    flex-grow: 1;
+}
