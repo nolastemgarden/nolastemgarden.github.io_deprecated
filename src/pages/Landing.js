@@ -22,30 +22,22 @@ const useStyles = makeStyles((theme) => ({
         minHeight: '100vh',
         backgroundColor: theme.palette.primary.main,
         width: '100%'
-
     },
     landingHeader: {
         
         width: '100%',
         height: '75vw',
-        maxHeight: '900px',
-        // maxHeight: '600px',
-        // overflowY: 'hidden',
-        // overflowX: 'hidden',
-        // minHeight: '520px',
     },
-    
-    
     cardArea: {
         // border: 'solid red 1px',
-        height: '100%',
+        height: 'auto',
         width: '100%',
         
 
     },
 }));
 
-export default function EnrichmentPage(props) {
+export default function LandingPage(props) {
     const classes = useStyles();
 
     return (
