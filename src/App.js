@@ -9,9 +9,10 @@ import {
 // MY components
 import LandingPage from "./pages/Landing";
 import TeachPage from "./pages/Teach";
-import GardenPage from "./pages/Garden";
+import GardenStoryPage from "./pages/GardenStory";
+import WhatsGrowingPage from "./pages/WhatsGrowing";
 import AboutMePage from "./pages/AboutMe";
-import ProgramPage from "./pages/Program";
+import ProgramPortfolioPage from "./pages/Program";
 // import ContactPage from "./pages/Contact";
 
 //  MUI imports
@@ -53,15 +54,19 @@ export default function App() {
                     <Switch>
                         
                         <Route exact path="/">
-                        <LandingPage />
+                            <LandingPage />
                         </Route>
 
                         <Route path="/teach">
-                        <TeachPage />
+                            <TeachPage />
                         </Route>
 
-                        <Route path="/garden">
-                        <GardenPage />
+                        <Route path="/whats_growing">
+                            <WhatsGrowingPage />
+                        </Route> 
+
+                        <Route path="/garden_story">
+                            <GardenStoryPage />
                         </Route> 
 
                         <Route path="/about_me">
@@ -69,7 +74,7 @@ export default function App() {
                         </Route> 
 
                         <Route path="/program_portfolio">
-                        <ProgramPage />
+                            <ProgramPortfolioPage />
                         </Route> 
 
                         {/* <Route path="/contact">
