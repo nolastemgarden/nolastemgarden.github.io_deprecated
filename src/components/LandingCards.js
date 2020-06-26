@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-// DESCRIPTION:  There will be only 3 cards on the landing page: About the Garden, Teaching Services, and Meet Nigel
+// DESCRIPTION:  There will be only 4 cards on the landing page: About the Garden, Teaching Services, Chess Clubs, and Meet Nigel
 
 export default function LandingCards(props) {
     const classes = useStyles();
