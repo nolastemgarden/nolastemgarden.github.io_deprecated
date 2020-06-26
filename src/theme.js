@@ -25,6 +25,10 @@ const theme = createMuiTheme({
     status: {
         danger: 'orange',
     },
+    shape: {
+        borderRadius: 8,
+    }
+
 });
 
 
