@@ -161,8 +161,6 @@ export default function LandingCards(props) {
                     </CardActionArea>
                     <CardActions className={classes.cardButtons} >
                         <Button
-                            component={RouterLink}
-                            to='/garden_story'
                             variant='contained'
                             size="medium"
                             color="primary"
@@ -170,8 +168,6 @@ export default function LandingCards(props) {
                             Our Story
                         </Button>
                         <Button
-                            component={RouterLink}
-                            to='/whats_growing'
                             variant='contained'
                             size="medium"
                             color="primary"
