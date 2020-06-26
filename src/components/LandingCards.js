@@ -289,7 +289,7 @@ export default function LandingCards(props) {
                         </Button>
                         <Button
                             component={RouterLink}
-                            to='/project_portfolio'
+                            to='/my_projects'
                             variant='contained'
                             size="medium"
                             color="primary"
