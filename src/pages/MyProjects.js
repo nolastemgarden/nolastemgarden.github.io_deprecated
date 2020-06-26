@@ -2,11 +2,12 @@ import React from 'react';
 
 // MY components
 import Navbar from "../components/Navbar";
-import LandingHeader from "../components/LandingHeader";
-import LandingCards from "../components/LandingCards";
+import MyProjectsHeader from "../components/MyProjectsHeader";
+import ProjectCards from "../components/ProjectCards";
 
 // MY images
 import bamboo from "../images/bamboo.jpg";
+import tic_tac_toe from "../images/projects/tic_tac_toe_screenshot.JPG";
 import logo from "../images/incomplete_logo.png";
 import street_view_before from "../images/garden_before.jpg";
 
@@ -95,8 +96,13 @@ export default function GardenStoryPage(props) {
                             My Projects
                         </Typography>
                     </Grid>
+                    <Grid item xs={12}>
+                        <Typography component='p' variant='body1' gutterBottom >
+                            As a math teacher I am frequently asked questions like, "When is knowing this ever going to be useful in <em>real life</em>?"
+                        </Typography>
+                    </Grid>
 
-
+                    <ProjectCards />
 
                 </Grid>
             </Container>
