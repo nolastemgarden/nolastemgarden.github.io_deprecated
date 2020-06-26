@@ -12,7 +12,7 @@ import TeachPage from "./pages/Teach";
 import GardenStoryPage from "./pages/GardenStory";
 import WhatsGrowingPage from "./pages/WhatsGrowing";
 import AboutMePage from "./pages/AboutMe";
-import ProgramPortfolioPage from "./pages/Program";
+import MyProjectsPage from "./pages/MyProjects";
 // import ContactPage from "./pages/Contact";
 
 //  MUI imports
@@ -73,8 +73,8 @@ export default function App() {
                             <AboutMePage />
                         </Route> 
 
-                        <Route path="/program_portfolio">
-                            <ProgramPortfolioPage />
+                        <Route path="/my_projects">
+                            <MyProjectsPage />
                         </Route> 
 
                         {/* <Route path="/contact">
