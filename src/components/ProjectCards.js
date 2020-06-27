@@ -19,6 +19,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
 
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -74,7 +75,7 @@ export default function ProjectCards(props) {
         >
 
             {/* TIC TAC TOE and the FIFTEEN GAME */}
-            <Grid item xs={12} sm={6} md={5} lg={3} >
+            <Grid item xs={12} sm={6} md={4} >
                 <Card className={classes.card}>
                     <CardActionArea>
                         <CardMedia
@@ -85,34 +86,20 @@ export default function ProjectCards(props) {
                         />
                         <CardContent>
                             <Typography variant="h5" component="h2">
-                                Teaching Services
+                                Tic-Tac-Toe and the Fifteen Game
                             </Typography>
 
-                            {/* SHORTER CARD BODY TEXT */}
-                            <Box display={{ xs: 'block', md: 'none' }}>
-                                <Typography
-                                    // 
-                                    variant="body2"
-                                    color="textSecondary"
-                                    component="p"
-                                >
-                                    Whether you have fallen behind in a math class, are seeking to get ahead, or just want
-                                    a to learn with a more hands on approach, I would love to help!
-                                </Typography>
-                            </Box>
-
-                            {/* LONGER CARD BODY TEXT */}
-                            <Box display={{ xs: 'none', md: 'block' }}>
+                            <Box>
                                 <Typography
                                     // display={{ xs: 'none', sm: 'block' }}
                                     variant="body2"
                                     color="textSecondary"
                                     component="p"
                                 >
-                                    I offer help to students who have fallen behind in math class, help preparing for the ACT and SAT,
-                                    and enrichment for students who excell at math but find the way it is taught in school uninspiring.
-                                    I also work with adults who got turned off of math when they were in school but want to give the
-                                    subject another shot and with teachers who are looking for ideas (or guest lessons) to spice up their classes.
+                                    Math lets us see when things that seem different on the surface are actually following the 
+                                    the same patterns deep down.
+                                    These two games feel very different to play at first, but once you complete the lesson on Magic Squares
+                                    you will notice some surprizing similarity between them!
                                 </Typography>
                             </Box>
                         </CardContent>
@@ -121,13 +108,12 @@ export default function ProjectCards(props) {
 
                     <CardActions>
                         <Button
-                            component={RouterLink}
-                            to='/teach'
+                            href='https://nolastemgarden.github.io/tic-tac-toe-and-the-fifteen-game/#/'
                             variant='contained'
                             size="medium"
                             color="primary"
                         >
-                            Learn More
+                            Play Now!
                         </Button>
                     </CardActions>
                 </Card>
@@ -135,52 +121,8 @@ export default function ProjectCards(props) {
 
 
 
-            {/* ABOUT THE GARDEN */}
-            <Grid item xs={12} sm={6} md={5} lg={3}  >
-                <Card className={classes.card}>
-                    <CardActionArea>
-                        <CardMedia
-                            className={classes.cardImage}
-                            alt="Homegrown Bananas and Papayas"
-                            image={tic_tac_toe}
-                            title="Homegrown Bananas and Papayas"
-                        />
-                        <CardContent>
-                            <Typography variant="h5" component="h2">
-                                About the Garden
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                Established in 2016, the garden started as a blighted lot and has gradually evolved into an oasis of turmeric and fruit trees.
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                    <CardActions className={classes.cardButtons} >
-                        <Button
-                            component={RouterLink}
-                            to='/garden_story'
-                            variant='contained'
-                            size="medium"
-                            color="primary"
-                        >
-                            Our Story
-                        </Button>
-                        <Button
-                            component={RouterLink}
-                            to='/whats_growing'
-                            variant='contained'
-                            size="medium"
-                            color="primary"
-                        >
-                            What's Growing
-                        </Button>
-
-                    </CardActions>
-                </Card>
-            </Grid>
-
-
-            {/* CHESS CLUBS and LESSONS */}
-            <Grid item xs={12} sm={6} md={5} lg={3} >
+            {/* CONNECT FOUR with MATH FACT PRACTICE */}
+            <Grid item xs={12} sm={6} md={4} >
                 <Card className={classes.card}>
                     <CardActionArea>
                         <CardMedia
@@ -191,35 +133,20 @@ export default function ProjectCards(props) {
                         />
                         <CardContent>
                             <Typography variant="h5" component="h2">
-                                Chess Clubs and Lessons
+                                Math Fact Connect Four
                             </Typography>
 
-                            {/* SHORTER CARD BODY TEXT */}
-                            <Box display={{ xs: 'block', md: 'none' }}>
-                                <Typography
-                                    // 
-                                    variant="body2"
-                                    color="textSecondary"
-                                    component="p"
-                                >
-                                    Chess helps kids develop problem solving and communication skills while having fun.
-                                    Playing with a timer is great preparation for fast-paced college entrance exams.
-                                    The Stem Garden offers private lessons as well as hosting afterschool clubs.
-                                </Typography>
-                            </Box>
-
-                            {/* LONGER CARD BODY TEXT */}
-                            <Box display={{ xs: 'none', md: 'block' }}>
+                            <Box>
                                 <Typography
                                     // display={{ xs: 'none', sm: 'block' }}
                                     variant="body2"
                                     color="textSecondary"
                                     component="p"
                                 >
-                                    Chess makes it fun for kids to learn valuable life-skills and thought-habits.
-                                    Kids who play chess learn to see the fun in problem solving and become better at
-                                    commuincating their reasoning. The Stem Garden partners with local schools to offer afterschool chess clubs,
-                                    as well as offering private and medium-group lessons.  Discounts are offered for combining chess lessons and math tutoring.
+                                    Play connect four in classic mode or use the game as a way to practice your fluency with the 
+                                    foundation multiplication and division facts. I originally created a version of this game made 
+                                    with laminated cards. My desire to share it with more than just the kids in my own class was a 
+                                    big part of what motivated me to learn to code!
                                 </Typography>
                             </Box>
                         </CardContent>
@@ -228,30 +155,64 @@ export default function ProjectCards(props) {
 
                     <CardActions>
                         <Button
-                            component={RouterLink}
-                            to='/teach'
+                            href='https://nolastemgarden.github.io/tic-tac-toe-and-the-fifteen-game/#/'
                             variant='contained'
                             size="medium"
                             color="primary"
                         >
-                            Lessons
-                        </Button>
-                        <Button
-                            component={RouterLink}
-                            to='/teach/chess_clubs'
-                            variant='contained'
-                            size="medium"
-                            color="primary"
-                        >
-                            Clubs
+                            Play Now!
                         </Button>
                     </CardActions>
                 </Card>
             </Grid>
 
 
-            {/* MEET NIGEL */}
-            <Grid item xs={12} sm={6} md={5} lg={3}  >
+            {/* CHESS CLUB RATING TRACKER */}
+            <Grid item xs={12} sm={6} md={4} >
+                <Card className={classes.card}>
+                    <CardActionArea>
+                        <CardMedia
+                            className={classes.cardImage}
+                            image={tic_tac_toe}
+                            alt="Student doing an experiment"
+                            title="Student doing an experiment"
+                        />
+                        <CardContent>
+                            <Typography variant="h5" component="h2">
+                                Chess Club Tracker
+                            </Typography>
+
+                            <Box>
+                                <Typography
+                                    // display={{ xs: 'none', sm: 'block' }}
+                                    variant="body2"
+                                    color="textSecondary"
+                                    component="p"
+                                >
+                                    I love playing chess and spreading the love of the game by hosting youth chess clubs.
+                                    I created this tool to track players' growth and to help them visualize their progress
+                                    relative to the other members of their club.
+                                </Typography>
+                            </Box>
+                        </CardContent>
+                    </CardActionArea>
+
+                    <CardActions>
+                        <Button
+                            href='https://nolastemgarden.github.io/tic-tac-toe-and-the-fifteen-game/#/'
+                            variant='contained'
+                            size="medium"
+                            color="primary"
+                        >
+                            Use the tracker
+                        </Button>
+                    </CardActions>
+                </Card>
+            </Grid>
+
+
+            {/* THREE FIELDS CARD GAME */}
+            <Grid item xs={12} sm={6} md={4}  >
                 <Card className={classes.card}>
                     <CardActionArea>
                         <CardMedia
@@ -264,11 +225,10 @@ export default function ProjectCards(props) {
                         />
                         <CardContent>
                             <Typography variant="h5" component="h2">
-                                Meet Nigel
+                                Three Fields
                             </Typography>
                             <Typography variant="body2" color="textSecondary" component="p">
-                                I am a jack of all trades who rejoices in helping kids see the world from new points of view.
-                                Get to know me by checking out some of my projects besides gardening and teaching!
+                                This is a two player card game that I invented.  It is an improved version of the classic game war.  Here you can find the rules for playing in person or you can play online against my bot.
                             </Typography>
                         </CardContent>
                     </CardActionArea>
