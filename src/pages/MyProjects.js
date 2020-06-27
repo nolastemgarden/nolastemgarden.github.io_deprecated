@@ -77,6 +77,8 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
+// TEXT can be found in Google Doc form at https://docs.google.com/document/d/19ujkydhB3RbG58DxAPPlO9bRPNA95wQN3wtLy1YXqLQ/edit#
+
 
 export default function GardenStoryPage(props) {
     const classes = useStyles();
@@ -98,7 +100,20 @@ export default function GardenStoryPage(props) {
                     </Grid>
                     <Grid item xs={12}>
                         <Typography component='p' variant='body1' gutterBottom >
-                            As a math teacher I am frequently asked questions like, "When is knowing this ever going to be useful in <em>real life</em>?"
+                            As a math teacher I am frequently asked questions like, "When is knowing this ever going to be useful in <em>real life</em>?"<br />
+                            That must be a tough question for a math teacher who went straight from being a student in a school to being a teacher in a school.  To be able to connect mathematics to the ‘real world’ in genuine ways that satisfy students, a math teacher must have experience working in the world outside of school.  I have gotten out-of-the classroom experience working as an electrician's assistant and building my off-grid homestead.
+                        </Typography>
+                        <Typography component='p' variant='body1' gutterBottom >
+                            In designing my rain catchment system, I used math and data on average monthly rainfall to determine the best ratio of roof area to storage tank volume.  In designing my solar power system, I had to think about how to position the panels to take advantage of the way the sun's path through the sky changes with the seasons.  I used trigonometry in designing and building the roofs of the tiny houses I live in.  During breaks in the school year, I work with electricians and we use math to ensure that the wiring we install is of sufficient size to safely carry the electrical loads it will be out under. 
+                        </Typography>
+                        <Typography component='p' variant='body1' gutterBottom >
+                            We all know that math has been very useful to humanity, but to get kids excited to learn math takes more than simply telling them it is useful or threatening that <em>someday</em> they are going to need to know it.  Skills that you only learn in order to pass a test will be forgotten as soon as the test is passed, but skills that you learn because there is something real you want to do with them tend to stick in memory much better!
+                        </Typography>
+                        <Typography component='p' variant='body1' gutterBottom >
+                            When you set out to learn something new, knowing in advance how you want to apply it provides motivation to overcome challenges along the way. It helps you focus your search in the right places, and it gives you a way to judge for yourself when your search has been a success.
+                        </Typography>
+                        <Typography component='p' variant='body1' gutterBottom >
+                            That's why, at the Nola Stem Garden, math lessons are woven seamlessly into hands-on projects. Gardening, Building, Music, and Strategy Games, there's something for everyone and there's Math in all of it!
                         </Typography>
                     </Grid>
 
