@@ -3,10 +3,12 @@ import React from 'react';
 // MY components
 import LandingHeader from "../components/LandingHeader";
 import LandingCards from "../components/LandingCards";
+import Navbar from "../components/Navbar";
 
 // MY images
 import bananas_and_loquat from "../images/bananas_and_loquat.jpg";
-import logo from "../images/incomplete_logo.png";
+// import logo from "../images/incomplete_logo.png";
+
 
 
 // MUI Imports
@@ -18,15 +20,30 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
     root: {
-        height: 'auto',
-        minHeight: '100vh',
+        height: '100vh',
+        width: '100vw',
+        // minHeight: '100vh',
         backgroundColor: theme.palette.primary.main,
-        width: '100%'
+       
     },
+    
+    
+
+    container: {
+        border: 'solid red 1px',
+        height: 'auto',
+        width: '100%',
+        minHeight: '90vh',
+        backgroundColor: theme.palette.primary.main,
+        // backgroundColor: theme.palette.primary.light,
+        // backgroundColor: theme.palette.common.white
+    },
+    
+
     landingHeader: {
         
         width: '100%',
-        height: '75vw',
+        height: '3rem',
     },
     cardArea: {
         // border: 'solid red 1px',
@@ -42,14 +59,22 @@ export default function LandingPage(props) {
 
     return (
         <Box className={classes.root}  >
-            <Box className={classes.landingHeader} >
-                <LandingHeader />
-            </Box>
+            <Navbar />
             
-            <Container className={classes.cardArea} >
+            <Container className={classes.container}
+                maxWidth='md' 
+            >
+                <LandingHeader />
+                
+            
+
                 <LandingCards /> 
             </Container>
+            
 
+            
         </Box>
     )
 }
+
+
