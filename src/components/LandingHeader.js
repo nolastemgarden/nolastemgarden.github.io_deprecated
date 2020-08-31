@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
         `,
         backgroundPosition: 'left',
         backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
+        backgroundSize: 'contain',
 
         display: 'flex',
         flexDirection: 'column',
@@ -88,9 +88,9 @@ export default function LandingHeader(props) {
             
 
             
-            <Box className={classes.logo}  >
+            {/* <Box className={classes.logo}  >
                 
-            </Box>
+            </Box> */}
 
             <Box className={classes.description}  >
                 <Typography variant="h5" component="h2">
