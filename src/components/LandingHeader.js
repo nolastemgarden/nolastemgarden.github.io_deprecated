@@ -6,6 +6,7 @@ import React from 'react';
 // MY images
 import bananas_and_loquat from "../images/bananas_and_loquat.jpg";
 import logo from "../images/incomplete_logo.png";
+import leaves from "../images/leaves.jpg";
 
 // MUI Imports
 import Container from '@material-ui/core/Container';
@@ -18,7 +19,7 @@ import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     root: {
-        // border: 'solid  yellow 1px',
+        border: 'solid  yellow 1px',
         width: '100%',
         height: '75vw',
       
@@ -26,39 +27,12 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.primary.contrastText,
 
         backgroundImage: `
-            linear-gradient(0deg, 
-                rgba(58,94,22,1.00) 0%, 
-                rgba(58,94,22,0.90) 15%,
-                rgba(58,94,22,0.00) 80% 
-            ), 
-            radial-gradient(circle, 
-                rgba(58,94,22,1) 30%, 
-                rgba(58,94,22,0) 70%),
+            
             url(${bananas_and_loquat})  
         `,
         backgroundPosition: 'left',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'contain',
-
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        
-    },
-
-    
-    logo: {
-        // border: 'solid red 1px',
-        width: '50%',
-        paddingTop: '50%',
-        
-        backgroundImage: `
-            url(${logo})  
-        `,
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: '70%',
 
         display: 'flex',
         flexDirection: 'column',
@@ -85,13 +59,6 @@ export default function LandingHeader(props) {
 
     return (
         <Box className={classes.root}  >
-            
-
-            
-            {/* <Box className={classes.logo}  >
-                
-            </Box> */}
-
             <Box className={classes.description}  >
                 <Typography variant="h5" component="h2">
                     Sowing the seeds of life-long learning and a DIY spirit through hands-on teaching 
