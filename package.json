@@ -2,7 +2,7 @@
   "name": "nolastemgarden.github.io",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://nolastemgarden.github.io/",
+  "homepage": "https://nolastemgarden.github.io/#/",
   "dependencies": {
     "@material-ui/core": "4.10.2",
     "@material-ui/icons": "4.9.1",
