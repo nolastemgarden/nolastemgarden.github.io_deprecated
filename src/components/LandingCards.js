@@ -74,7 +74,6 @@ export default function LandingCards(props) {
         <Grid container
             className={classes.gridContainer}
             id='grid'
-            maxWidth='md'
             spacing={4}
         >
 
