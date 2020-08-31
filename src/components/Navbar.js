@@ -88,7 +88,11 @@ export default function Navbar(props) {
             className = {classes.navbar}
             elevation = '3'
         >
-            <Container className={classes.navbarContainer} maxWidth='md'>
+            <Container 
+                className={classes.navbarContainer} 
+                maxWidth='md'
+                disableGutters
+            >
                 <Box className={classes.logo} >
 
                 </Box>
