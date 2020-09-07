@@ -9,7 +9,7 @@ import Navbar from "../components/Navbar";
 import bananas_and_loquat from "../images/bananas_and_loquat.jpg";
 // import logo from "../images/incomplete_logo.png";
 import leaves from "../images/leaves.jpg";
-
+// import leaves from "../images/leaves_edited.jpg";
 
 // MUI Imports
 import Container from '@material-ui/core/Container';
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
         height: '100vh',
         width: '100vw',
         // minHeight: '100vh',
-        backgroundColor: theme.palette.primary.main,
+        // backgroundColor: theme.palette.common.white,
        
     },
     
@@ -41,22 +41,22 @@ const useStyles = makeStyles((theme) => ({
         // backgroundColor: theme.palette.common.white
     },
     leaves: {
-        border: 'solid  yellow 1px',
+        // border: 'solid  yellow 1px',
         width: '100%',
         paddingTop: '75%',
 
-        backgroundColor: theme.palette.primary.main,
+        // backgroundColor: theme.palette.primary.light,
         color: theme.palette.primary.contrastText,
 
-        backgroundImage: `
-            linear-gradient(90deg, 
-                rgba(58,94,22,0.50) 0%, 
-                rgba(58,94,22,0.50) 100%),
-            url(${leaves})  
-        `,
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
+        // backgroundImage: `
+        //     linear-gradient(90deg, 
+        //         rgba(58,94,22,0.50) 0%, 
+        //         rgba(58,94,22,0.50) 100%),
+        //     url(${leaves})  
+        // `,
+        // backgroundPosition: 'center',
+        // backgroundRepeat: 'no-repeat',
+        // backgroundSize: 'cover',
 
         display: 'flex',
         flexDirection: 'column',
@@ -86,25 +86,9 @@ export default function LandingPage(props) {
         <Box className={classes.root}  >
             <Navbar />
             
-            <Container 
-                className={classes.container}
-                maxWidth='md' 
-                disableGutters
-            >
-                {/* <LandingHeader />
-                <LandingCards />  */}
+            <MobileBody  />
 
-                <Box className={classes.leaves}  >
-                    {/* <Box className={classes.description}  >
-                        <Typography variant="h5" component="h2">
-                            Sowing the seeds of life-long learning and a DIY spirit through hands-on teaching
-                            of math, physics, plant biology, and computer programming.
-                        </Typography>
-
-                    </Box> */}
-
-                </Box>
-            </Container>
+            <DesktopBody />
             
 
             
@@ -112,4 +96,40 @@ export default function LandingPage(props) {
     )
 }
 
+function MobileBody(props) {
+    const classes = useStyles();
+
+    return (
+        <Box className={classes.mobileBody}
+            display={{ xs: 'block', lg: 'none' }}  
+        >
+            <Container
+                className={classes.desktopContainer}
+                maxWidth='md'
+                disableGutters
+            >
+                MOBILE Container
+            </Container>
+        </Box>
+    )
+}
+
+
+function DesktopBody(props) {
+    const classes = useStyles();
+
+    return (
+        <Box className={classes.desktopBody}
+            display={{ xs: 'none', lg: 'block' }}
+        >
+            <Container
+                className={classes.desktopContainer}
+                maxWidth='md'
+                disableGutters
+            >
+                The Landing Page's Desktop Container
+            </Container>
+        </Box>
+    )
+}
 
