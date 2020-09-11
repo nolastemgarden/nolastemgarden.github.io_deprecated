@@ -196,9 +196,9 @@ function MobileNavbar(props) {
     return (
         <Box display={{ xs: 'block', md: 'none' }} >
             <AppBar
-                className={[classes.navbar, classes.mobileNavbar]}
+                className={classes.navbar, classes.mobileNavbar}
                 position="sticky"
-                elevation='3'
+                elevation={3}
             >
                 <Container
                     className={classes.navbarContainer}
@@ -235,9 +235,9 @@ function DesktopNavbar(props) {
     return (
         <Box display={{ xs: 'none', md: 'block' }} >
             <AppBar
-                className={[classes.navbar, classes.desktopNavbar]}
+                className={classes.navbar, classes.desktopNavbar}
                 position="sticky"
-                elevation='3'
+                elevation={3}
             >
                 <Container
                     className={classes.navbarContainer}
