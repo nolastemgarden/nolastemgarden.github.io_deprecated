@@ -1,4 +1,6 @@
 import React from 'react';
+
+// REACT ROUTER
 import {
     BrowserRouter as Router,
     Link as RouterLink,
@@ -6,7 +8,7 @@ import {
     Switch
 } from "react-router-dom";
 
-// MY components
+// MY COMPONENTS
 import LandingPage from "./pages/Landing";
 import TeachPage from "./pages/Teach";
 import GardenStoryPage from "./pages/GardenStory";
