@@ -1,9 +1,18 @@
 import React from 'react';
 
+// MY COMPONENTS
+import MobileMenu from "../components/NavbarMenus/MobileMenu";
+
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Grow from '@material-ui/core/Grow';
+import Paper from '@material-ui/core/Paper';
+import Popper from '@material-ui/core/Popper';
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuList from '@material-ui/core/MenuList';
+
+
 // Image Imports
 import logo from "../images/nsgLogoSnipped.png";
-
-// CUSTOM COMPONENTS
 
 
 // MATERIAL-UI COMPONENTS
@@ -27,6 +36,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import { findAllByPlaceholderText } from '@testing-library/react';
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+        display: 'flex',
+    },
+    paper: {
+        marginRight: theme.spacing(2),
+    },
     navbar: {
         // height: '3.5rem',
         width: '100vw',
@@ -54,39 +69,101 @@ const useStyles = makeStyles((theme) => ({
     },
 
     navbarContainer: {
+        // border: 'solid red 1px',
         height: '100%',
         backgroundColor: theme.palette.primary.main, // Matches Logo Background
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        // alignItems: 'flex-end'
 
     },
 
     logo: {
-        border: 'solid red 1px',
+        // border: 'solid red 1px',
         height: '100%',
-        paddingRight: '6.5rem',
         backgroundImage: `
             url(${logo})  
         `,
         backgroundPosition: 'left bottom',
         backgroundRepeat: 'no-repeat',
-        // backgroundSize: 'contain',
         backgroundSize: 'auto 95%',
     },
-    brand: {
-        border: 'solid blue 1px',
+    mobileBrand: {
+        // border: 'solid blue 1px',
+        paddingTop: '0.4rem',
         flex: '2 0 60%',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center'
     },
+
+
+    desktopLogo: {
+        // border: 'solid red 1px',
+        height: '100%',
+        paddingRight: '6.5rem',
+        backgroundImage: `
+            url(${logo})  
+        `,
+        backgroundPosition: 'center bottom',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'auto 95%',
+    },
+    desktopBrand: {
+        // border: 'solid blue 1px',
+        paddingTop: '1rem',
+        flex: '1 0 25%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'stretch',
+        // alignItems: 'center',
+        fontSize: '2rem'
+    },
+    desktopLink: {
+        border: 'solid yellow 1px',
+        fontSize: '1.3rem',
+        paddingBottom: '1rem',
+        flex: '1 0 12%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        textAlign: 'center'
+    },
+    desktopMenu: {
+        border: 'solid yellow 1px',
+        fontSize: '1.3rem',
+        paddingBottom: '1rem',
+        flex: '1 0 12%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        textAlign: 'center'
+    },
+    desktopMenuButton: {
+        border: 'solid yellow 1px',
+
+        color: theme.palette.common.white,
+        textTransform: "none",
+        fontSize: '1rem',
+        // justifyContent: 'flex-end',
+        // paddingBottom: '1rem',
+        flex: '1 0 12%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'stretch',
+        alignItems: 'center',
+        textAlign: 'center'
+    },
+
     businessType: {
         lineHeight: '1.0'
     },
     menu: {
-        border: 'solid red 1px',
+        // border: 'solid red 1px',
         height: '100%',
         // paddingLeft: '2rem',
         flex: '0 0 15%',
@@ -106,14 +183,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Navbar(props) {
     const classes = useStyles();
-
     return (
         <Box className={classes.root}  >
-            
             <MobileNavbar />
-
             <DesktopNavbar />
-
         </Box>
     )
 }
@@ -121,7 +194,7 @@ export default function Navbar(props) {
 function MobileNavbar(props) {
     const classes = useStyles();
     return (
-        <Box display={{ xs: 'block', lg: 'none' }} >
+        <Box display={{ xs: 'block', md: 'none' }} >
             <AppBar
                 className={[classes.navbar, classes.mobileNavbar]}
                 position="sticky"
@@ -132,16 +205,24 @@ function MobileNavbar(props) {
                     maxWidth='md'
                     disableGutters
                 >
-                    <Box className={classes.logo} />
-                    <Box className={classes.brand} >
-                        <Typography variant='h4' className={classes.businessName}>
-                            STEM Garden
-                        </Typography>
-                        <Typography variant='body2'  className={classes.businessType} >
-                            Tutoring & Enrichment
-                        </Typography>
-                    </Box>
-                    <SimpleMenu />
+                    <Grid container>
+                        <Grid item xs={2} >
+                            <Box className={classes.logo} />
+                        </Grid>
+                        <Grid item xs={8} >
+                            <Box className={classes.mobileBrand} >
+                                <Typography variant='h4' className={classes.businessName}>
+                                    STEM Garden
+                                </Typography>
+                                <Typography variant='body2' className={classes.businessType} >
+                                    Tutoring & Enrichment
+                                </Typography>
+                            </Box>
+                        </Grid>
+                        <Grid item xs={2} >
+                            <MobileMenu />
+                        </Grid>
+                    </Grid>
                 </Container>
             </AppBar>
         </Box>
@@ -152,7 +233,7 @@ function MobileNavbar(props) {
 function DesktopNavbar(props) {
     const classes = useStyles();
     return (
-        <Box display={{ xs: 'none', lg: 'block' }} >
+        <Box display={{ xs: 'none', md: 'block' }} >
             <AppBar
                 className={[classes.navbar, classes.desktopNavbar]}
                 position="sticky"
@@ -163,24 +244,20 @@ function DesktopNavbar(props) {
                     maxWidth='md'
                     disableGutters
                 >
-                    <Box className={classes.logo} >
-
+                    <Box className={classes.desktopLogo} />
+                    <Box className={classes.desktopBrand} >
+                        STEM <br />Garden
                     </Box>
-                    <Box className={classes.brandName} >
-                        <Typography variant='h4'>
-                            Desktop Navbar
-                    </Typography>
-                        {/* <Typography
-                        className={classes.businessType}
-                        variant='body2'
-                    >
-                        Tutoring and Enrichment
-                    </Typography> */}
+                    <Box className={classes.desktopLink} >
+                        Teaching <br />Services
                     </Box>
-
-
-                    <SimpleMenu />
-
+                    <Box className={classes.desktopLink} >
+                        About the<br />Garden
+                    </Box>
+                    <ProjectsMenu />
+                    <Box className={classes.desktopLink} >
+                        Contact
+                    </Box>
                 </Container>
             </AppBar>
         </Box>
@@ -193,51 +270,72 @@ function DesktopNavbar(props) {
 
 
 
-function SimpleMenu() {
+function ProjectsMenu() {
     const classes = useStyles();
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [open, setOpen] = React.useState(false);
+    const anchorRef = React.useRef(null);
 
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
+    const handleToggle = () => {
+        setOpen((prevOpen) => !prevOpen);
     };
 
-    const handleClose = () => {
-        setAnchorEl(null);
+    const handleClose = (event) => {
+        if (anchorRef.current && anchorRef.current.contains(event.target)) {
+            return;
+        }
+        setOpen(false);
     };
+
+    function handleListKeyDown(event) {
+        if (event.key === 'Tab') {
+            event.preventDefault();
+            setOpen(false);
+        }
+    }
+
+    // return focus to the button when we transitioned from !open -> open
+    const prevOpen = React.useRef(open);
+    React.useEffect(() => {
+        if (prevOpen.current === true && open === false) {
+            anchorRef.current.focus();
+        }
+
+        prevOpen.current = open;
+    }, [open]);
 
     return (
-        <div className={classes.menu}>
+        <div className={classes.projectMenu}>
             <Button
-                className={classes.menuButton}
-                aria-controls="simple-menu"
+                className={classes.desktopMenuButton}
+                variant="text"
+                ref={anchorRef}
+                aria-controls={open ? 'menu-list-grow' : undefined}
                 aria-haspopup="true"
-                onClick={handleClick}
+                onClick={handleToggle}
             >
-                <MenuIcon className={classes.menuIcon} />
+                <Typography variant="h5">
+                    Other<br />Projects
+                </Typography>
+                
             </Button>
-
-
-            <Menu
-                id="simple-menu"
-                anchorEl={anchorEl}
-                keepMounted
-                open={Boolean(anchorEl)}
-                onClick={handleClose}
-                className={classes.menuItems}
-            >
-                <ListSubheader className={classes.stickySubheader}>
-                    Teaching Services
-                </ListSubheader>
-                {/* <TeachingNavList /> */}
-
-                <Divider />
-
-                <ListSubheader className={classes.stickySubheader}>
-                    About the Garden
-                </ListSubheader>
-                {/* <GardenNavList /> */}
-
-            </Menu>
+            <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+                {({ TransitionProps, placement }) => (
+                    <Grow
+                        {...TransitionProps}
+                        style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                    >
+                        <Paper>
+                            <ClickAwayListener onClickAway={handleClose}>
+                                <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+                                    <MenuItem onClick={handleClose}>Profile</MenuItem>
+                                    <MenuItem onClick={handleClose}>My account</MenuItem>
+                                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                                </MenuList>
+                            </ClickAwayListener>
+                        </Paper>
+                    </Grow>
+                )}
+            </Popper>
         </div>
     );
 }
