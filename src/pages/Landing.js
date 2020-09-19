@@ -2,7 +2,8 @@ import React from 'react';
 
 // MY components
 import LandingHeader from "../components/LandingHeader";
-import LandingCards from "../components/LandingCards";
+import MobileLandingCards from "../components/MobileLandingCards";
+import DesktopLandingCards from "../components/DesktopLandingCards";
 import Navbar from "../components/Navbar";
 
 // MY images
@@ -48,16 +49,16 @@ const useStyles = makeStyles((theme) => ({
         backgroundSize: 'cover',
     },
     mobileTitleText: {
-        border: 'solid red 1px',
-        padding: '1rem',
-        textAlign: 'center',
-
+        color: theme.palette.common.white,
+        padding: '0.7rem',
+        paddingTop: '1.0rem',
+        textShadow: '0.15rem 0.15rem 0.3rem black',
     },
     mobileSubtitleText: {
-        border: 'solid red 1px',
+        // border: 'solid red 1px',
+        color: theme.palette.common.white,
         padding: '1rem',
-        textAlign: 'justify',
-
+        textShadow: '0.12rem 0.12rem 0.20rem black',
     },
 
     container: {
@@ -119,24 +120,35 @@ function MobileBody(props) {
             className={classes.mobileBody}
             display={{ xs: 'block', lg: 'none' }}  
         >
-            <Box className={classes.mobileTitleText} >
-                Sowing the seeds of Love of Learning and DIY spirit
-                through hands-on teaching of math, physics, plant biology, 
-                chess, and computer programming. 
-            </Box>
-            <Box className={classes.mobileSubtitleText} >
-                The STEM Garden is an off-grid urban teaching garden, rooted in New Orleans. 
-                We offer private lessons, both in the garden and online. 
-                If you love Math and Science already and are looking for an extra challenge,
-                then you have come to the right place. 
-                If you want to enjoy these subjects and be good at them but find the way 
-                they are taught in school to be uninspiring and detached from reality, 
-                then you have come to the right place. 
-                
-                I am a Gardener, a Builder, and a Musician and being familiar with Physics 
-                helps me be better at all these things. 
+            <Typography
+                className={classes.mobileTitleText}
+                align='center'
+                color='textPrimary'
+                component='h1'
+                variant='h4'
+            >
+                Sowing the seeds of life-long learning and DIY-spirit
+                through integrated teaching of math, physics, biology,
+                chess, and computer programming.
+            </Typography>
+            
+            <Typography
+                className={classes.mobileSubtitleText}
+                align='justify'
+                color='textPrimary'
+                component='h1'
+                variant='body1'
+            >
+                The STEM Garden is an off-grid urban teaching garden, rooted in New Orleans, 
+                offering private tutoring and small group lessons, both in the garden and online. 
+            </Typography>
+            
 
-            </Box>
+
+
+            {/* <LandingCards /> */}
+
+            
         </Box>
     )
 }
