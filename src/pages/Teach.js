@@ -2,7 +2,7 @@ import React from 'react';
 
 // MY components
 import Navbar from "../components/Navbar";
-import LandingHeader from "../components/LandingHeader";
+// import LandingHeader from "../components/LandingHeader";
 import LandingCards from "../components/LandingCards";
 
 // MY images
