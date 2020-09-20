@@ -48,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.primary.main, // Matches Logo Background
         display: 'flex',
         color: '#fff',
+        
     },
     mobileNavbar: {
         height: '3.5rem',
@@ -197,7 +198,7 @@ function MobileNavbar(props) {
         <Box display={{ xs: 'block', md: 'none' }} >
             <AppBar
                 className={classes.navbar, classes.mobileNavbar}
-                position="sticky"
+                position="fixed"
                 elevation={3}
             >
                 <Container
@@ -236,7 +237,7 @@ function DesktopNavbar(props) {
         <Box display={{ xs: 'none', md: 'block' }} >
             <AppBar
                 className={classes.navbar, classes.desktopNavbar}
-                position="sticky"
+                position="fixed"
                 elevation={3}
             >
                 <Container
@@ -260,6 +261,7 @@ function DesktopNavbar(props) {
                     </Box>
                 </Container>
             </AppBar>
+            
         </Box>
     );
 }
