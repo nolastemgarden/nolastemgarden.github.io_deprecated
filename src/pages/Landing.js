@@ -1,7 +1,7 @@
 import React from 'react';
 
 // MY components
-import LandingHeader from "../components/LandingHeader";
+// import LandingHeader from "../components/LandingHeader";
 import MobileLandingCards from "../components/MobileLandingCards";
 import DesktopLandingCards from "../components/DesktopLandingCards";
 import Navbar from "../components/Navbar";
@@ -16,7 +16,7 @@ import turmeric from "../images/turmeric.jpg";
 // MUI Imports
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
-
+import AppBar from '@material-ui/core/AppBar';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
@@ -40,27 +40,71 @@ const useStyles = makeStyles((theme) => ({
                 rgba(58,94,22,0.80) 100%),
             url(${leaves})
         `,
-        backgroundPosition: 'center',
+        backgroundPosition: 'center top',
         backgroundRepeat: 'repeat-y',
-        backgroundSize: '100% auto',
+        backgroundSize: 'contain',
     },
+    desktopBody: {
+        height: 'auto',
+        width: '100%',
+        minHeight: '100vh',
+        backgroundImage: `
+            linear-gradient(90deg, 
+                rgba(58,94,22,0.70) 0%, 
+                rgba(58,94,22,0.80) 100%),
+            url(${leaves})
+        `,
+        backgroundPosition: 'center top',
+        backgroundRepeat: 'repeat-y',
+        backgroundSize: 'cover',
+    },
+    desktopContainer: {
+        backgroundImage: `
+            linear-gradient(90deg, 
+                rgba(58,94,22,0.00) 0%, 
+                rgba(58,94,22,0.50) 5%,
+                rgba(58,94,22,0.70) 10%, 
+                rgba(58,94,22,0.70) 90%,
+                rgba(58,94,22,0.50) 95%,
+                rgba(58,94,22,0.00) 100%)
+        `,
+        backgroundPosition: 'center top',
+        backgroundRepeat: 'repeat-y',
+        backgroundSize: 'cover',
+    },
+
+
     mobileTitleText: {
         color: theme.palette.common.white,
-        padding: '0.7rem',
-        paddingTop: '1.0rem',
+        // maxWidth: '90%',
+        padding: '2.5rem',
+        paddingTop: '8.0rem',
+        paddingBottom: '4.0rem',
         textShadow: '0.15rem 0.15rem 0.3rem black',
     },
     mobileSubtitleText: {
         // border: 'solid red 1px',
         color: theme.palette.common.white,
-        padding: '1rem',
+        padding: '1rem 3rem 1rem 3rem',
         textShadow: '0.12rem 0.12rem 0.20rem black',
     },
 
-    
+    desktopTitleText: {
+        color: theme.palette.common.white,
+        padding: '2.5rem',
+        paddingTop: '12.0rem',
+        paddingBottom: '3.0rem',
+        textShadow: '0.15rem 0.15rem 0.3rem black',
+    },
+    desktopSubtitleText: {
+        // border: 'solid red 1px',
+        color: theme.palette.common.white,
+        padding: '1rem 5rem 2rem 5rem',
+        // padding: '5rem',
+        textShadow: '0.12rem 0.12rem 0.20rem black',
+    },
 
     landingHeader: {
-        
         width: '100%',
         height: '3rem',
     },
@@ -89,7 +133,6 @@ export default function LandingPage(props) {
 
 function MobileBody(props) {
     const classes = useStyles();
-
     return (
         <Box 
             className={classes.mobileBody}
@@ -144,12 +187,10 @@ function MobileBody(props) {
             
             <Box
                 className={classes.cardArea}
-                display={{ xs: 'block', sm: 'none' }}
+                display={{ xs: 'block' }}
             >
                 <MobileLandingCards />
             </Box>
-            
-            
         </Box>
     )
 }
@@ -157,9 +198,9 @@ function MobileBody(props) {
 
 function DesktopBody(props) {
     const classes = useStyles();
-
-    return (
-        <Box className={classes.desktopBody}
+    return ( 
+        <Box
+            className={classes.desktopBody}
             display={{ xs: 'none', lg: 'block' }}
         >
             <Container
@@ -167,9 +208,46 @@ function DesktopBody(props) {
                 maxWidth='md'
                 disableGutters
             >
-                The Landing Page's Desktop Container
+                <Typography
+                    className={classes.desktopTitleText}
+                    align='center'
+                    color='textPrimary'
+                    component='h1'
+                    variant='h2'
+                >
+                    Sowing the seeds of life-long learning and DIY-spirit
+                    through integrated teaching of math, physics, biology,
+                    chess, and computer programming.
+                </Typography>
+
+                <Box
+                    className={classes.smText}
+                    display={{ xs: 'none', sm: 'block' }}
+                >
+                    <Typography
+                        className={classes.desktopSubtitleText}
+                        align='justify'
+                        color='textPrimary'
+                        component='h2'
+                        variant='h5'
+                    >
+                        The STEM Garden is an off-grid urban teaching garden, rooted in New Orleans.
+                        We offer private tutoring and small group lessons, both in the garden and online.
+                        We help students excell on the SAT and ACT and meet all Common Core curriculum standards, 
+                        but we see learning math as so much more than that! We emphacize the playful side of 
+                        mathematical thinking and make use of many puzzles, games, and hands-on projects to engage young imaginations.
+                    </Typography>
+                </Box>
+
+                <Box
+                    className={classes.cardArea}
+                    display={{ xs: 'block' }}
+                >
+                    <MobileLandingCards />
+                </Box>
             </Container>
         </Box>
+    
     )
 }
 
