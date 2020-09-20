@@ -30,23 +30,19 @@ const useStyles = makeStyles((theme) => ({
     },
     mobileBody: {
         // border: 'solid red 1px',
-        height: 'calc(100% - 3.5rem)',   // 3.5rem is the height of the mobileNavbar 
-        width: 'inherit',
+        // height: 'calc(100% - 3.5rem)',   // 3.5rem is the height of the mobileNavbar 
+        height: 'auto',
+        width: '100%',
+        minHeight: '100vh',
         backgroundImage: `
             linear-gradient(90deg, 
                 rgba(58,94,22,0.70) 0%, 
                 rgba(58,94,22,0.80) 100%),
             url(${leaves})
         `,
-        // backgroundImage: `
-        //     linear-gradient(90deg, 
-        //         rgba(46,107,18,0.60) 0%, 
-        //         rgba(46,107,18,0.80) 100%),
-        //     url(${leaves})
-        // `,
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
+        backgroundRepeat: 'repeat-y',
+        backgroundSize: '100% auto',
     },
     mobileTitleText: {
         color: theme.palette.common.white,
@@ -61,27 +57,6 @@ const useStyles = makeStyles((theme) => ({
         textShadow: '0.12rem 0.12rem 0.20rem black',
     },
 
-    container: {
-        // border: 'solid red 1px',
-        height: 'auto',
-        width: '100%',
-        minHeight: '100vh',
-        // marginTop: '1rem',
-        // paddingTop: '1rem',
-        // backgroundColor: theme.palette.primary.main,
-        backgroundColor: theme.palette.primary.light,
-        // backgroundColor: theme.palette.common.white
-        backgroundImage: `
-            linear-gradient(90deg, 
-                rgba(58,94,22,0.50) 0%, 
-                rgba(58,94,22,0.50) 100%),
-            url(${leaves})  
-        `,
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-    },
-    
     
 
     landingHeader: {
@@ -93,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
         // border: 'solid red 1px',
         height: 'auto',
         width: '100%',
-        
+        padding: '1rem'
 
     },
 }));
@@ -131,23 +106,49 @@ function MobileBody(props) {
                 through integrated teaching of math, physics, biology,
                 chess, and computer programming.
             </Typography>
-            
-            <Typography
-                className={classes.mobileSubtitleText}
-                align='justify'
-                color='textPrimary'
-                component='h1'
-                variant='body1'
+
+            <Box
+                className={classes.xsText}
+                display={{ xs: 'block', sm: 'none' }}
             >
-                The STEM Garden is an off-grid urban teaching garden, rooted in New Orleans, 
-                offering private tutoring and small group lessons, both in the garden and online. 
+                <Typography
+                    className={classes.mobileSubtitleText}
+                    align='justify'
+                    color='textPrimary'
+                    component='h2'
+                    variant='body1'
+                >
+                    The STEM Garden is an off-grid urban teaching garden, rooted in New Orleans,
+                    offering private tutoring and small group lessons, both in the garden and online.
+                </Typography>
+            </Box>
+
+            <Box
+                className={classes.smText}
+                display={{ xs: 'none', sm: 'block' }}
+            >
+                <Typography
+                    className={classes.mobileSubtitleText}
+                    align='justify'
+                    color='textPrimary'
+                    component='h2'
+                    variant='body1'
+                >
+                    The STEM Garden is an off-grid urban teaching garden, rooted in New Orleans.
+                    We offer private tutoring and small group lessons, both in the garden and online.
+                    We help students meet all common core math standards but see learning math as 
+                    so much more than that! We emphacize the playful side of mathematical thinking and
+                    use many puzzles, games, hands-on projects to engage young imaginations.
             </Typography>
+            </Box>
             
-
-
-
-            {/* <LandingCards /> */}
-
+            <Box
+                className={classes.cardArea}
+                display={{ xs: 'block', sm: 'none' }}
+            >
+                <MobileLandingCards />
+            </Box>
+            
             
         </Box>
     )
