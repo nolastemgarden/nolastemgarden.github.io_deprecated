@@ -69,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
                 rgba(58,94,22,0.00) 100%)
         `,
         backgroundPosition: 'center top',
+        // yOffset: '12rem',
         backgroundRepeat: 'repeat-y',
         backgroundSize: 'cover',
     },
@@ -78,9 +79,11 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.common.white,
         // maxWidth: '90%',
         padding: '2.5rem',
-        paddingTop: '8.0rem',
-        paddingBottom: '4.0rem',
+        paddingTop: '7.0rem',
+        paddingBottom: '3.0rem',
         textShadow: '0.15rem 0.15rem 0.3rem black',
+        // fontSize: 'calc(1rem + 5vw)',
+        fontSize: '7vw'
     },
     mobileSubtitleText: {
         // border: 'solid red 1px',
@@ -143,7 +146,7 @@ function MobileBody(props) {
                 align='center'
                 color='textPrimary'
                 component='h1'
-                variant='h4'
+                variant='h2'
             >
                 Sowing the seeds of life-long learning and DIY-spirit
                 through integrated teaching of math, physics, biology,
