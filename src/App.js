@@ -10,9 +10,13 @@ import {
 
 // MY COMPONENTS
 import LandingPage from "./pages/Landing";
+
 import TeachPage from "./pages/Teach";
+import MathGamesPage from "./pages/MathGames";
+import PuzzleCollectionPage from "./pages/PuzzleCollection"
+
 import GardenStoryPage from "./pages/GardenStory";
-import WhatsGrowingPage from "./pages/WhatsGrowing";
+import GardenGalleryPage from "./pages/GardenGallery";
 import AboutMePage from "./pages/AboutMe";
 import MyProjectsPage from "./pages/MyProjects";
 // import ContactPage from "./pages/Contact";
@@ -55,22 +59,34 @@ export default function App() {
                 <Router basename='/'>
                     <Switch>
                         
+                        {/* LANDING */}
                         <Route exact path="/">
                             <LandingPage />
                         </Route>
 
+                        {/* TEACHING SERVICES */}
                         <Route path="/teach">
                             <TeachPage />
                         </Route>
 
-                        <Route path="/whats_growing">
-                            <WhatsGrowingPage />
+                        <Route path="/math_games">
+                            <MathGamesPage />
+                        </Route>
+
+                        <Route path="/puzzle_collection">
+                            <PuzzleCollectionPage />
+                        </Route> 
+
+                        {/* GARDEN STUFF */}
+                        <Route path="/garden_photo_gallery">
+                            <GardenGalleryPage />
                         </Route> 
 
                         <Route path="/garden_story">
                             <GardenStoryPage />
                         </Route> 
 
+                        {/* ABOUT ME */}
                         <Route path="/about_me">
                             <AboutMePage />
                         </Route> 
