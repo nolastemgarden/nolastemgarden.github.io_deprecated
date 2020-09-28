@@ -1,156 +1,181 @@
 import React from 'react';
 
-// ICONS
-import MenuIcon from '@material-ui/icons/Menu';
+// React ROUTER
+import { Link as RouterLink } from "react-router-dom";
+
+
+
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
 
 // MATERIAL-UI COMPONENTS
-import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
-import Grid from "@material-ui/core/Grid";
-import Typography from '@material-ui/core/Typography';
-import AppBar from '@material-ui/core/AppBar';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
+import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
-import {
-    Menu,
-    ListSubheader,
-    Divider,
-} from '@material-ui/core';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 
 
-import { makeStyles } from '@material-ui/core/styles';
-import { findAllByPlaceholderText } from '@testing-library/react';
+// ICONS
+import MenuIcon from '@material-ui/icons/Menu';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';
+import { fontSize } from '@material-ui/system';
+import SchoolIcon from '@material-ui/icons/School';
+import EcoIcon from '@material-ui/icons/Eco'; 
+import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        display: 'flex',
+const useStyles = makeStyles(theme => ({
+    list: {
+        width: 250,
     },
-    paper: {
-        marginRight: theme.spacing(2),
-    },
-    navbar: {
-        // height: '3.5rem',
-        width: '100vw',
-        backgroundColor: theme.palette.primary.main, // Matches Logo Background
-        display: 'flex',
-        color: '#fff',
-    },
-    mobileNavbar: {
-        height: '3.5rem',
-        width: '100vw',
-        backgroundColor: theme.palette.primary.main, // Matches Logo Background
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        color: '#fff',
-    },
-    desktopNavbar: {
-        height: '7rem',
-        width: '100vw',
-        backgroundColor: theme.palette.primary.main, // Matches Logo Background
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        color: '#fff',
-    },
-
-    navbarContainer: {
-        // border: 'solid red 1px',
-        height: '100%',
-        backgroundColor: theme.palette.primary.main, // Matches Logo Background
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        // alignItems: 'flex-end'
-
-    },
-
-    
-    desktopMenuButton: {
-        border: 'solid yellow 1px',
-
-        color: theme.palette.common.white,
-        textTransform: "none",
-        fontSize: '1rem',
-        // justifyContent: 'flex-end',
-        // paddingBottom: '1rem',
-        flex: '1 0 12%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'stretch',
-        alignItems: 'center',
-        textAlign: 'center'
-    },
-
-    businessType: {
-        lineHeight: '1.0'
+    fullList: {
+        width: 'auto',
     },
     menu: {
         // border: 'solid red 1px',
         height: '100%',
-        // paddingLeft: '2rem',
-        flex: '0 0 15%',
         display: 'flex',
+        alignItems: 'center',
         justifyContent: 'flex-end'
-
     },
     menuButton: {
+        color: theme.palette.common.white,
+        // fontSize: '5rem',
 
-        color: theme.palette.common.white
-    },
-
+    }
 }));
 
 export default function MobileMenu() {
     const classes = useStyles();
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [state, setState] = React.useState({
+        open: false,
+    });
 
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
+    const toggleDrawer = (anchor, open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+
+        setState({ ...state, [anchor]: open });
     };
 
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    const list = (anchor) => (
+        <Box
+            className={clsx(classes.list, {
+                [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+            })}
+            role="presentation"
+            onClick={toggleDrawer(anchor, false)}
+            onKeyDown={toggleDrawer(anchor, false)}
+        >
+            <List> 
+              {/* TEACH */}
+                <ListItem
+                    key={'teach'}
+                    button
+                    component={RouterLink}
+                    to='/teach'
+                >
+                    <ListItemIcon>
+                        {/* <SchoolIcon /> */}
+                        <i class="fas fa-graduation-cap fa-lg"></i>
+                    </ListItemIcon>
+                    <ListItemText primary={'Teaching Services'} />
+                </ListItem>
+
+              {/* GAMES */}
+                <ListItem
+                    key={'math_games'}
+                    button
+                    component={RouterLink}
+                    to='/math_games'
+                >
+                    <ListItemIcon>
+                        <i class="fas fa-dice-six fa-lg"></i>
+                    </ListItemIcon>
+                    <ListItemText primary={'Math Games'} />
+                </ListItem>
+                
+
+                {/* PUZZLES */}
+                <ListItem
+                    key={'puzzle_collection'}
+                    button
+                    component={RouterLink}
+                    to='/puzzle_collection'
+                >
+                    <ListItemIcon>
+                        <i class="fas fa-puzzle-piece fa-lg"></i>
+                    </ListItemIcon>
+                    <ListItemText primary={'Puzzle Collection'} />
+                </ListItem>
+                <Divider />
+
+              {/* GARDEN */}
+                <ListItem
+                    key={'garden'}
+                    button
+                    component={RouterLink}
+                    to='/garden_story'
+                >
+                    <ListItemIcon>
+                        <EcoIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={'Story of the Garden'} />
+                </ListItem>
+
+                {/* GALLERY */}
+                <ListItem
+                    key={'gallery'}
+                    button
+                    component={RouterLink}
+                    to='/garden_photo_gallery'
+                >
+                    <ListItemIcon>
+                        <PhotoCameraIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={'Garden Photo Gallery'} />
+                </ListItem>
+                <Divider />
+
+                
+
+                {/* GALLERY */}
+                <ListItem
+                    key={'gallery'}
+                    button
+                    component={RouterLink}
+                    to='/photo_gallery'
+                >
+                    <ListItemIcon>
+                        <PhotoCameraIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={'Garden Photo Gallery'} />
+                </ListItem>
+
+                
+            </List>
+        </Box>
+    );
 
     return (
-        <div className={classes.menu}>
-            <Button
+        <Box className={classes.menu}>
+            <Button 
+                onClick={toggleDrawer('open', true)}
                 className={classes.menuButton}
                 aria-controls="simple-menu"
                 aria-haspopup="true"
-                onClick={handleClick}
             >
-                <MenuIcon className={classes.menuIcon} />
+                <MenuIcon className={classes.menuIcon} fontSize='large' />
             </Button>
-
-
-            <Menu
-                id="simple-menu"
-                anchorEl={anchorEl}
-                keepMounted
-                open={Boolean(anchorEl)}
-                onClick={handleClose}
-                className={classes.menuItems}
-            >
-                <ListSubheader className={classes.stickySubheader}>
-                    Teaching Services
-                </ListSubheader>
-                {/* <TeachingNavList /> */}
-
-                <Divider />
-
-                <ListSubheader className={classes.stickySubheader}>
-                    About the Garden
-                </ListSubheader>
-                {/* <GardenNavList /> */}
-
-            </Menu>
-        </div>
+                    
+            <Drawer anchor={'right'} open={state['open']} onClose={toggleDrawer('open', false)}>
+                {list('right')}
+            </Drawer>
+        </Box>
     );
 }
