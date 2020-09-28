@@ -1,7 +1,7 @@
 import React from 'react';
-import {
-    Link as RouterLink,
-} from "react-router-dom";
+
+// React ROUTER
+import {Link as RouterLink} from "react-router-dom";
 
 // MY images
 import chessclub from "../images/chess_demo_board.jpg";
@@ -170,7 +170,7 @@ export default function LandingCards(props) {
                         </Button>
                         <Button
                             component={RouterLink}
-                            to='/whats_growing'
+                            to='/photo_gallery'
                             variant='contained'
                             size="medium"
                             color="primary"
