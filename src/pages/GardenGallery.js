@@ -12,6 +12,8 @@ import bananas_and_loquat from "../images/bananas_and_loquat.jpg";
 import leaves from "../images/leaves_cropped_for_mobile.jpg";
 // import leaves from "../images/leaves_edited.jpg";
 import turmeric from "../images/turmeric.jpg";
+import bananaPapayaHarvest from "../images/banana-papaya-harvest.JPG"
+
 
 // MUI Imports
 import Container from '@material-ui/core/Container';
@@ -69,22 +71,16 @@ const useStyles = makeStyles((theme) => ({
         backgroundSize: 'cover',
     },
 
-
-    mobileTitleText: {
+    text: {
         color: theme.palette.common.white,
-        // maxWidth: '90%',
-        // padding: '2.5rem',
-        paddingTop: '5.0rem',
-        paddingBottom: '1.5rem',
         textShadow: '0.15rem 0.15rem 0.3rem black',
-        // fontSize: 'calc(1rem + 5vw)',
-        fontSize: '7vw'
+        // fontSize: '7vw'
     },
-    mobileSubtitleText: {
-        // border: 'solid red 1px',
-        color: theme.palette.common.white,
-        padding: '0rem 3rem 1rem 3rem',
-        textShadow: '0.12rem 0.12rem 0.20rem black',
+    header: {
+        paddingTop: '5.0rem',
+    },
+    body: {
+        padding: '2.0rem',
     },
 
     desktopTitleText: {
@@ -107,7 +103,7 @@ const useStyles = makeStyles((theme) => ({
         height: '3rem',
     },
     grid: {
-        border: 'solid red 1px',
+        // border: 'solid red 1px',
         height: 'auto',
         width: '100%',
         padding: '1rem'
@@ -137,32 +133,27 @@ function MobileBody(props) {
             display={{ xs: 'block', lg: 'none' }}
         >
             <Typography
-                className={classes.mobileTitleText}
+                className={[classes.text, classes.header]}
                 align='center'
                 color='textPrimary'
                 component='h1'
-                variant='h5'
+                variant='h2'
             >
-                An Urban Oasis
+                What We Grow
             </Typography>
-
-            <Box
-                className={classes.xsText}
-                display={{ xs: 'block', sm: 'none' }}
+            
+            <Typography
+                className={[classes.text, classes.body]}
+                align='justify'
+                color='textPrimary'
+                component='h2'
+                variant='body1'
             >
-                <Typography
-                    className={classes.mobileSubtitleText}
-                    align='justify'
-                    color='textPrimary'
-                    component='h2'
-                    variant='body1'
-                >
-                    Established in 2016, the STEM Garden started as a blighted lot and 
-                    evolved into an urban food forest. We are currently seeking a 
-                    market for our surplus banana, papaya, and turmeric. 
-                </Typography>
-            </Box>
-
+                The garden is home to dozens of species of fruit trees, edible flowers,
+                medicinal herbs, and vegetables. We are currently seeking buyers for 
+                our surplus banana, papaya, and turmeric. 
+            </Typography>
+        
             <Box
                 className={classes.smText}
                 display={{ xs: 'none', sm: 'block' }}
@@ -177,18 +168,17 @@ function MobileBody(props) {
                     Established in 2016, the STEM Garden started as a blighted lot in New Orleans
                     St. Claude neighborhood and gradually evolved into an urban food forest. 
                     We are currently seeking a market for our surplus banana, papaya, and turmeric.
-            </Typography>
+                </Typography>
             </Box>
 
-            <Box
-                className={classes.grid}
-                display={{ xs: 'block' }}
-            >
-                <PhotoGrid />
-            </Box>
+            <PhotoGridOne />
         </Box>
     )
 }
+
+
+
+
 
 
 function DesktopBody(props) {
