@@ -17,7 +17,7 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-
+import Icon from '@material-ui/core/Icon';
 
 // ICONS
 import MenuIcon from '@material-ui/icons/Menu';
@@ -80,10 +80,7 @@ export default function MobileMenu() {
                     component={RouterLink}
                     to='/teach'
                 >
-                    <ListItemIcon>
-                        {/* <SchoolIcon /> */}
-                        <i class="fas fa-graduation-cap fa-lg"></i>
-                    </ListItemIcon>
+                    <ListItemIcon className="fas fa-graduation-cap fa-lg" />
                     <ListItemText primary={'Teaching Services'} />
                 </ListItem>
 
@@ -94,9 +91,7 @@ export default function MobileMenu() {
                     component={RouterLink}
                     to='/math_games'
                 >
-                    <ListItemIcon>
-                        <i class="fas fa-dice-six fa-lg"></i>
-                    </ListItemIcon>
+                    <ListItemIcon className="fas fa-dice-six fa-lg" />
                     <ListItemText primary={'Math Games'} />
                 </ListItem>
                 
@@ -108,9 +103,7 @@ export default function MobileMenu() {
                     component={RouterLink}
                     to='/puzzle_collection'
                 >
-                    <ListItemIcon>
-                        <i class="fas fa-puzzle-piece fa-lg"></i>
-                    </ListItemIcon>
+                    <ListItemIcon className="fas fa-puzzle-piece fa-lg" />
                     <ListItemText primary={'Puzzle Collection'} />
                 </ListItem>
                 <Divider />
@@ -128,23 +121,7 @@ export default function MobileMenu() {
                     <ListItemText primary={'Story of the Garden'} />
                 </ListItem>
 
-                {/* GALLERY */}
-                <ListItem
-                    key={'gallery'}
-                    button
-                    component={RouterLink}
-                    to='/garden_photo_gallery'
-                >
-                    <ListItemIcon>
-                        <PhotoCameraIcon />
-                    </ListItemIcon>
-                    <ListItemText primary={'Garden Photo Gallery'} />
-                </ListItem>
-                <Divider />
-
-                
-
-                {/* GALLERY */}
+              {/* GALLERY */}
                 <ListItem
                     key={'gallery'}
                     button
