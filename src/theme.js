@@ -28,7 +28,8 @@ const theme = createMuiTheme({
     },
     shape: {
         borderRadius: 8,
-    }
+    },
+    spacing: 8,
 
 });
 
