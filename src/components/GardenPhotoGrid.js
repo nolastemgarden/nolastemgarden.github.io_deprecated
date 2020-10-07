@@ -8,6 +8,7 @@ import bananas_and_loquat from "../images/bananas_and_loquat.jpg";
 import leaves from "../images/leaves_cropped_for_mobile.jpg";
 // import leaves from "../images/leaves_edited.jpg";
 import turmeric from "../images/turmeric.jpg";
+import bananaPapayaHarvest from "../images/banana-papaya-harvest.JPG"
 
 // MUI Imports
 import Container from '@material-ui/core/Container';
@@ -21,7 +22,7 @@ import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 
-import tileData from './tileData';
+// import tileData from './tileData';
 
 import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
@@ -30,11 +31,11 @@ const useStyles = makeStyles((theme) => ({
         flexWrap: 'wrap',
         justifyContent: 'space-around',
         overflow: 'hidden',
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: '#222',
     },
     gridList: {
-        width: 500,
-        height: 450,
+        width: '100%',
+        height: 'auto',
         // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
         transform: 'translateZ(0)',
     },
@@ -66,26 +67,73 @@ const useStyles = makeStyles((theme) => ({
  *   },
  * ];
  */
+
+
+
+const tileData = [
+{
+    img: bananaPapayaHarvest,
+    title: 'Banana Papaya Harvest',
+    author: 'Nigel',
+    wide: true,
+    tall: true,
+},
+{
+    img: turmeric,
+    title: 'turmeric',
+    author: 'Nigel',
+    wide: false,
+    tall: false,
+},
+{
+    img: bananas_and_loquat,
+    title: 'Bananas and Loquat',
+    author: 'Nigel',
+    wide: false,
+    tall: false,
+},
+{
+    img: turmeric,
+    title: 'turmeric',
+    author: 'Nigel',
+    wide: false,
+    tall: false,
+},
+{
+    img: bananaPapayaHarvest,
+    title: 'Banana Papaya Harvest',
+    author: 'Nigel',
+    wide: false,
+    tall: true,
+},
+{
+    img: turmeric,
+    title: 'turmeric',
+    author: 'Nigel',
+    wide: true,
+    tall: false,
+}];
+
 export default function GardenPhotoGrid() {
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
-            <GridList cellHeight={200} spacing={1} className={classes.gridList}>
+            <GridList 
+                cellHeight={'240'} 
+                spacing={12} 
+                className={classes.gridList}
+                cols={3}
+            >
                 {tileData.map((tile) => (
-                    <GridListTile key={tile.img} cols={tile.featured ? 2 : 1} rows={tile.featured ? 2 : 1}>
+                    <GridListTile key={tile.img} cols={tile.wide ? 2 : 1} rows={tile.tall ? 2 : 1}>
                         <img src={tile.img} alt={tile.title} />
-                        <GridListTileBar
+                        {/* <GridListTileBar
                             title={tile.title}
-                            titlePosition="top"
-                            actionIcon={
-                                <IconButton aria-label={`star ${tile.title}`} className={classes.icon}>
-                                    <StarBorderIcon />
-                                </IconButton>
-                            }
+                            titlePosition="bottom"
                             actionPosition="left"
                             className={classes.titleBar}
-                        />
+                        /> */}
                     </GridListTile>
                 ))}
             </GridList>
