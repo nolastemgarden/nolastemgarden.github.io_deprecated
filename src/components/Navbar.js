@@ -1,5 +1,10 @@
 import React from 'react';
 
+
+// React ROUTER
+import { Link as RouterLink } from "react-router-dom";
+
+
 // MY COMPONENTS
 import MobileMenu from "../components/NavbarMenus/MobileMenu";
 
@@ -22,10 +27,14 @@ import Grid from "@material-ui/core/Grid";
 import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import { Menu,
-    ListSubheader,
-    Divider,
-    } from '@material-ui/core';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Icon from '@material-ui/core/Icon';
+
+import Menu from '@material-ui/core';
 
 // MATERIAL-UI ICONS
 import MenuIcon from '@material-ui/icons/Menu';
@@ -122,42 +131,20 @@ const useStyles = makeStyles((theme) => ({
         // alignItems: 'center',
         fontSize: '2rem'
     },
-    desktopLink: {
-        border: 'solid yellow 1px',
-        fontSize: '1.3rem',
-        paddingBottom: '1rem',
-        flex: '1 0 12%',
+    desktopMenuButtons: {
+        // border: 'solid blue 1px',
+        flex: '1 0 50%',
         display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-        textAlign: 'center'
-    },
-    desktopMenu: {
-        border: 'solid yellow 1px',
-        fontSize: '1.3rem',
-        paddingBottom: '1rem',
-        flex: '1 0 12%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-        textAlign: 'center'
+        justifyContent: 'space-between',
+        alignItems: 'flex-end',
+        paddingRight:'2.5rem'
     },
     desktopMenuButton: {
-        border: 'solid yellow 1px',
-
         color: theme.palette.common.white,
         textTransform: "none",
-        fontSize: '1rem',
-        // justifyContent: 'flex-end',
-        // paddingBottom: '1rem',
-        flex: '1 0 12%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'stretch',
-        alignItems: 'center',
-        textAlign: 'center'
+        fontSize: '1.0rem',
+        textAlign: 'center',
+        paddingBottom: '0.5rem',
     },
 
     businessType: {
@@ -249,16 +236,16 @@ function DesktopNavbar(props) {
                     <Box className={classes.desktopBrand} >
                         STEM <br />Garden
                     </Box>
-                    <Box className={classes.desktopLink} >
-                        Teaching <br />Services
+
+                    <Box className={classes.desktopMenuButtons} >
+                        <TeachingServicesMenu />
+
+                        <GardenAboutMenu />
+
+                        <ContactPageLink />
                     </Box>
-                    <Box className={classes.desktopLink} >
-                        About the<br />Garden
-                    </Box>
-                    <ProjectsMenu />
-                    <Box className={classes.desktopLink} >
-                        Contact
-                    </Box>
+                    
+                    
                 </Container>
             </AppBar>
             
@@ -269,7 +256,194 @@ function DesktopNavbar(props) {
 
 
 
+function TeachingServicesMenu() {
+    const classes = useStyles();
+    const [open, setOpen] = React.useState(false);
+    const anchorRef = React.useRef(null);
 
+    const handleToggle = () => {
+        setOpen((prevOpen) => !prevOpen);
+    };
+
+    const handleClose = (event) => {
+        if (anchorRef.current && anchorRef.current.contains(event.target)) {
+            return;
+        }
+        setOpen(false);
+    };
+
+    function handleListKeyDown(event) {
+        if (event.key === 'Tab') {
+            event.preventDefault();
+            setOpen(false);
+        }
+    }
+
+    // return focus to the button when we transitioned from !open -> open
+    const prevOpen = React.useRef(open);
+    React.useEffect(() => {
+        if (prevOpen.current === true && open === false) {
+            anchorRef.current.focus();
+        }
+
+        prevOpen.current = open;
+    }, [open]);
+
+    return (
+        <Box className={classes.teachingServicesMenu}>
+            <Button
+                className={classes.desktopMenuButton}
+                variant="text"
+                ref={anchorRef}
+                aria-controls={open ? 'menu-list-grow' : undefined}
+                aria-haspopup="true"
+                onClick={handleToggle}
+            >
+                <Typography variant="h5">
+                    Teaching<br />Services
+                </Typography>
+
+            </Button>
+            <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+                {({ TransitionProps, placement }) => (
+                    <Grow
+                        {...TransitionProps}
+                        style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                    >
+                        <Paper>
+                            <ClickAwayListener onClickAway={handleClose}>
+                                <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+                                    <MenuItem 
+                                        key={'teach'}
+                                        onClick={handleClose}
+                                        button
+                                        component={RouterLink}
+                                        to='/teach'
+                                    >
+                                        <ListItemIcon className="fas fa-graduation-cap fa-lg" />
+                                        <ListItemText primary={'Teaching Services'} />
+                                    </MenuItem>
+                                    <MenuItem
+                                        key={'teach'}
+                                        onClick={handleClose}
+                                        button
+                                        component={RouterLink}
+                                        to='/teach'
+                                    >
+                                        <ListItemIcon className="fas fa-graduation-cap fa-lg" />
+                                        <ListItemText primary={'Teaching Services'} />
+                                    </MenuItem><MenuItem
+                                        key={'teach'}
+                                        onClick={handleClose}
+                                        button
+                                        component={RouterLink}
+                                        to='/teach'
+                                    >
+                                        <ListItemIcon className="fas fa-graduation-cap fa-lg" />
+                                        <ListItemText primary={'Teaching Services'} />
+                                    </MenuItem>
+                                </MenuList>
+                            </ClickAwayListener>
+                        </Paper>
+                    </Grow>
+                )}
+            </Popper>
+        </Box>
+    );
+}
+
+function GardenAboutMenu() {
+    const classes = useStyles();
+    const [open, setOpen] = React.useState(false);
+    const anchorRef = React.useRef(null);
+
+    const handleToggle = () => {
+        setOpen((prevOpen) => !prevOpen);
+    };
+
+    const handleClose = (event) => {
+        if (anchorRef.current && anchorRef.current.contains(event.target)) {
+            return;
+        }
+        setOpen(false);
+    };
+
+    function handleListKeyDown(event) {
+        if (event.key === 'Tab') {
+            event.preventDefault();
+            setOpen(false);
+        }
+    }
+
+    // return focus to the button when we transitioned from !open -> open
+    const prevOpen = React.useRef(open);
+    React.useEffect(() => {
+        if (prevOpen.current === true && open === false) {
+            anchorRef.current.focus();
+        }
+
+        prevOpen.current = open;
+    }, [open]);
+
+    return (
+        <Box className={classes.gardenAboutMenu}>
+            <Button
+                className={classes.desktopMenuButton}
+                variant="text"
+                ref={anchorRef}
+                aria-controls={open ? 'menu-list-grow' : undefined}
+                aria-haspopup="true"
+                onClick={handleToggle}
+            >
+                <Typography variant="h5">
+                    About the<br />Garden
+                </Typography>
+
+            </Button>
+            <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+                {({ TransitionProps, placement }) => (
+                    <Grow
+                        {...TransitionProps}
+                        style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                    >
+                        <Paper>
+                            <ClickAwayListener onClickAway={handleClose}>
+                                <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+                                    <MenuItem onClick={handleClose}>Profile</MenuItem>
+                                    <MenuItem onClick={handleClose}>My account</MenuItem>
+                                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                                </MenuList>
+                            </ClickAwayListener>
+                        </Paper>
+                    </Grow>
+                )}
+            </Popper>
+        </Box>
+    );
+}
+
+
+function ContactPageLink() {
+    const classes = useStyles();
+    
+    return (
+        <Box 
+        // className={classes.desktopMenuButton}
+        >
+            <Button
+                className={classes.desktopMenuButton}
+                variant="text"
+                
+            >
+                <Typography variant="h5">
+                    Contact
+                </Typography>
+
+            </Button>
+            
+        </Box>
+    );
+}
 
 
 function ProjectsMenu() {
@@ -341,3 +515,4 @@ function ProjectsMenu() {
         </div>
     );
 }
+
