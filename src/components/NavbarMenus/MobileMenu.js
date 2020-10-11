@@ -1,5 +1,9 @@
 import React from 'react';
 
+// MY components
+import TeachingServicesList from "../NavbarMenus/TeachingServicesList";
+import GardenNavigationList from "../NavbarMenus/GardenNavigationList";
+
 // React ROUTER
 import { Link as RouterLink } from "react-router-dom";
 
@@ -31,6 +35,7 @@ import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
 const useStyles = makeStyles(theme => ({
     list: {
         width: 250,
+        fontSize: '0.8rem'
     },
     fullList: {
         width: 'auto',
@@ -72,70 +77,14 @@ export default function MobileMenu() {
             onClick={toggleDrawer(anchor, false)}
             onKeyDown={toggleDrawer(anchor, false)}
         >
-            <List> 
-              {/* TEACH */}
-                <ListItem
-                    key={'teach'}
-                    button
-                    component={RouterLink}
-                    to='/teach'
-                >
-                    <ListItemIcon className="fas fa-graduation-cap fa-lg" />
-                    <ListItemText primary={'Teaching Services'} />
-                </ListItem>
+            
+            <TeachingServicesList />
 
-              {/* GAMES */}
-                <ListItem
-                    key={'math_games'}
-                    button
-                    component={RouterLink}
-                    to='/math_games'
-                >
-                    <ListItemIcon className="fas fa-dice-six fa-lg" />
-                    <ListItemText primary={'Math Games'} />
-                </ListItem>
-                
-
-                {/* PUZZLES */}
-                <ListItem
-                    key={'puzzle_collection'}
-                    button
-                    component={RouterLink}
-                    to='/puzzle_collection'
-                >
-                    <ListItemIcon className="fas fa-puzzle-piece fa-lg" />
-                    <ListItemText primary={'Puzzle Collection'} />
-                </ListItem>
                 <Divider />
 
-              {/* GARDEN */}
-                <ListItem
-                    key={'garden'}
-                    button
-                    component={RouterLink}
-                    to='/garden_story'
-                >
-                    <ListItemIcon>
-                        <EcoIcon />
-                    </ListItemIcon>
-                    <ListItemText primary={'Story of the Garden'} />
-                </ListItem>
-
-              {/* GALLERY */}
-                <ListItem
-                    key={'gallery'}
-                    button
-                    component={RouterLink}
-                    to='/photo_gallery'
-                >
-                    <ListItemIcon>
-                        <PhotoCameraIcon />
-                    </ListItemIcon>
-                    <ListItemText primary={'Garden Photo Gallery'} />
-                </ListItem>
-
-                
-            </List>
+            <GardenNavigationList />
+            
+            
         </Box>
     );
 
