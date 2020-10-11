@@ -178,7 +178,54 @@ function MobileBody(props) {
 
 
 
+function PhotoGridOne(props) {
+    const classes = useStyles();
+    return (
+        <Box
+            className={classes.desktopBody}
+            display={{ xs: 'none', lg: 'block' }}
+        >
+            <Container
+                className={classes.desktopContainer}
+                maxWidth='md'
+                disableGutters
+            >
+                <Typography
+                    className={classes.desktopTitleText}
+                    align='center'
+                    color='textPrimary'
+                    component='h1'
+                    variant='h2'
+                >
+                    COPIED THE LANDING PAGE
+                </Typography>
 
+                <Box
+                    className={classes.smText}
+                    display={{ xs: 'none', sm: 'block' }}
+                >
+                    <Typography
+                        className={classes.desktopSubtitleText}
+                        align='justify'
+                        color='textPrimary'
+                        component='h2'
+                        variant='h5'
+                    >
+                        COPIED THE LANDING PAGE
+                    </Typography>
+                </Box>
+
+                <Box
+                    className={classes.cardArea}
+                    display={{ xs: 'block' }}
+                >
+                    <MobileLandingCards />
+                </Box>
+            </Container>
+        </Box>
+
+    )
+}
 
 
 function DesktopBody(props) {
