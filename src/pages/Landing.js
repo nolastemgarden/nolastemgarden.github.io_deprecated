@@ -61,17 +61,18 @@ const useStyles = makeStyles((theme) => ({
     desktopContainer: {
         backgroundImage: `
             linear-gradient(90deg, 
-                rgba(58,94,22,0.00) 0%, 
-                rgba(58,94,22,0.50) 5%,
-                rgba(58,94,22,0.70) 10%, 
-                rgba(58,94,22,0.70) 90%,
-                rgba(58,94,22,0.50) 95%,
-                rgba(58,94,22,0.00) 100%)
+                rgba(58,100,22,0.00) 0%, 
+                rgba(58,100,22,0.50) 10%,
+                rgba(58,100,22,0.70) 15%, 
+                rgba(58,100,22,0.70) 85%,
+                rgba(58,100,22,0.50) 90%,
+                rgba(58,100,22,0.00) 100%)
         `,
         backgroundPosition: 'center top',
         // yOffset: '12rem',
         backgroundRepeat: 'repeat-y',
         backgroundSize: 'cover',
+        padding: '0rem 9rem'
     },
 
 
@@ -208,8 +209,8 @@ function DesktopBody(props) {
         >
             <Container
                 className={classes.desktopContainer}
-                maxWidth='md'
-                disableGutters
+                maxWidth='lg'
+                // disableGutters
             >
                 <Typography
                     className={classes.desktopTitleText}
