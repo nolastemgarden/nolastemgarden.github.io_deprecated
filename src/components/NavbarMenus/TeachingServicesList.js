@@ -24,8 +24,10 @@ import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
 
 const useStyles = makeStyles(theme => ({
     list: {
-        width: 280,
-        backgroundColor: theme.palette.primary.dark
+        width: 'inherit',
+        // backgroundColor: theme.palette.primary.dark
+        backgroundColor: 'inherit'
+
     },
     listItem: {
         color: theme.palette.common.white,
@@ -60,17 +62,21 @@ export default function TeachingServicesList() {
                 />
             </ListItem>
 
+
             <ListItem
                 key={'test prep'}
+                className={classes.listItem}
                 button
                 component={RouterLink}
                 // to='/teach/test_prep'
                 to='/teach'
             >
-                <ListItemIcon className="fas fa-graduation-cap fa-2x" />
+                <Icon className={"fas fa-graduation-cap fa-2x"}
+                    classes={{ root: classes.icon }}
+                />
                 <ListItemText 
                     primary={'Test Prep'}
-                    primaryTypographyProps={{ variant: 'h6' }}
+                    primaryTypographyProps={{ variant: 'h5' }}
                 />
             </ListItem>
 
@@ -89,30 +95,35 @@ export default function TeachingServicesList() {
 
             <ListItem
                 key={'chess lessons'}
+                className={classes.listItem}
                 button
                 component={RouterLink}
-                // to='/chess'
+                // to='/teach/chess'
                 to='/teach'
             >
-                <ListItemIcon className="fas fa-chess-knight fa-2x" />
-                {/* <ListItemIcon className="fas fa-chess fa-3x" /> */}
+                <Icon className={"fas fa-chess-knight fa-2x"}
+                    classes={{ root: classes.icon }}
+                />
                 <ListItemText 
                     primary={'Chess Lessons'}
-                    primaryTypographyProps={{ variant: 'h6' }}
+                    primaryTypographyProps={{ variant: 'h5' }}
                 />
             </ListItem>
 
             <ListItem
                 key={'computer science'}
+                className={classes.listItem}
                 button
                 component={RouterLink}
-                // to='/computer_science'
-                to='/teach'
+                to='/program'
+                // to='/teach'
             >
-                <ListItemIcon className="fas fa-laptop-code fa-2x" />
+                <Icon className="fas fa-laptop-code fa-2x"
+                    classes={{ root: classes.icon }}
+                />
                 <ListItemText 
                     primary={'Computer Science'}
-                    primaryTypographyProps={{ variant: 'h6' }}
+                    primaryTypographyProps={{ variant: 'h5' }}
                 />
             </ListItem>
 
@@ -120,28 +131,56 @@ export default function TeachingServicesList() {
 
             <ListItem
                 key={'math_games'}
+                className={classes.listItem}
                 button
                 component={RouterLink}
-                to='/math_games'
+                // to='/teach/math_games'
+                to='/teach'
             >
-                <ListItemIcon className="fas fa-dice-six fa-2x" />
+                <Icon className="fas fa-dice-six fa-2x"
+                    classes={{ root: classes.icon }}
+                />
                 <ListItemText 
                     primary={'Math Games'}
-                    primaryTypographyProps={{ variant: 'h6' }}
+                    primaryTypographyProps={{ variant: 'h5' }}
                 />
             </ListItem>
 
 
             <ListItem
                 key={'puzzle_collection'}
+                className={classes.listItem}
                 button
                 component={RouterLink}
-                to='/puzzle_collection'
+                // to='/teach/puzzles'
+                to='/teach'
             >
-                <ListItemIcon className="fas fa-puzzle-piece fa-2x" />
+                <Icon className="fas fa-puzzle-piece fa-2x"
+                    classes={{ root: classes.icon }}
+                />
                 <ListItemText 
                     primary={'Puzzle Collection'}
-                    primaryTypographyProps={{ variant: 'h6' }}
+                    primaryTypographyProps={{ variant: 'h5' }}
+                />
+            </ListItem>
+
+            <ListItem
+                key={'teaching_philosophy'}
+                className={classes.listItem}
+                button
+                component={RouterLink}
+                // to='/teach/philosophy'
+                to='/teach'
+            >
+                <Icon className="fas fa-question fa-2x"
+                    classes={{ root: classes.icon }}
+                />
+                {/* <Icon className="fas fa-question-mark fa-2x"
+                    classes={{ root: classes.icon }}
+                /> */}
+                <ListItemText
+                    primary={'Teaching Philosophy'}
+                    primaryTypographyProps={{ variant: 'h5' }}
                 />
             </ListItem>
 
