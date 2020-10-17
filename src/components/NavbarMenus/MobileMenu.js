@@ -2,7 +2,7 @@ import React from 'react';
 
 // MY components
 import TeachingServicesList from "../NavbarMenus/TeachingServicesList";
-import GardenNavigationList from "../NavbarMenus/GardenNavigationList";
+import GardenNavigationList from "./AboutGardenList";
 
 // React ROUTER
 import { Link as RouterLink } from "react-router-dom";
@@ -34,15 +34,26 @@ import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
 
 const useStyles = makeStyles(theme => ({
     list: {
-        width: 250,
-        fontSize: '0.8rem'
+        width: 280,
+        fontSize: '0.8rem',
+        backgroundColor: theme.palette.primary.main,
+        height: '100%'
     },
     fullList: {
         width: 'auto',
     },
+    drawer: {
+        // backgroundColor: theme.palette.primary.main,
+        height: 'auto'
+    },
+    paper: {
+        backgroundColor: theme.palette.primary.main,
+        height: 'auto'
+    },
     menu: {
         // border: 'solid red 1px',
-        height: '100%',
+        backgroundColor: theme.palette.primary.main,
+        // height: '100%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-end'
@@ -70,9 +81,10 @@ export default function MobileMenu() {
 
     const list = (anchor) => (
         <Box
-            className={clsx(classes.list, {
-                [classes.fullList]: anchor === 'top' || anchor === 'bottom',
-            })}
+            // className={clsx(classes.list, {
+            //     [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+            // })}
+            className={classes.list}
             role="presentation"
             onClick={toggleDrawer(anchor, false)}
             onKeyDown={toggleDrawer(anchor, false)}
@@ -97,9 +109,15 @@ export default function MobileMenu() {
                 aria-haspopup="true"
             >
                 <MenuIcon className={classes.menuIcon} fontSize='large' />
-            </Button>
-                    
-            <Drawer anchor={'right'} open={state['open']} onClose={toggleDrawer('open', false)}>
+            </Button>   
+            <Drawer 
+                className={classes.drawer}
+                classes={{ paper: 'paper'}}
+                // PaperProps={classes.paper}
+                anchor={'right'} 
+                open={state['open']} 
+                onClose={toggleDrawer('open', false)}
+            >
                 {list('right')}
             </Drawer>
         </Box>
