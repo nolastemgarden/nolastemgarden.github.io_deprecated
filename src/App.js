@@ -77,12 +77,15 @@ export default function App() {
                             <PuzzleCollectionPage />
                         </Route> 
 
+                        {/* TODO *************************************************/}
+
+
                         {/* GARDEN STUFF */}
-                        <Route path="/garden_photo_gallery">
+                        <Route path="/photo_gallery">
                             <GardenGalleryPage />
                         </Route> 
 
-                        <Route path="/garden_story">
+                        <Route path="/our_story">
                             <GardenStoryPage />
                         </Route> 
 
