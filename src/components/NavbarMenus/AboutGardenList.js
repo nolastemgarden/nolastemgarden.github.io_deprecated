@@ -25,7 +25,7 @@ import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
 const useStyles = makeStyles(theme => ({
     list: {
         width: 280,
-        backgroundColor: theme.palette.primary.dark
+        backgroundColor: 'inherit'
     },
     listItem: {
         color: theme.palette.common.white,
@@ -43,6 +43,7 @@ export default function GardenNavigationList() {
 
     return (
         <List className={classes.list}>
+            
             <ListItem
                 key={'our_story'}
                 className={classes.listItem}
@@ -59,7 +60,6 @@ export default function GardenNavigationList() {
                 />
             </ListItem>
 
-            {/* GALLERY */}
             <ListItem
                 key={'gallery'}
                 className={classes.listItem}
@@ -73,6 +73,22 @@ export default function GardenNavigationList() {
                 <ListItemText 
                     primary={'Photo Gallery'} 
                     primaryTypographyProps={{variant: 'h5'}}
+                />
+            </ListItem>
+
+            <ListItem
+                key={'for_sale'}
+                className={classes.listItem}
+                button
+                component={RouterLink}
+                to='/produce_for_sale'
+            >
+                <Icon className="fas fa-carrot fa-2x"
+                    classes={{ root: classes.icon }}
+                />
+                <ListItemText
+                    primary={'Produce for Sale'}
+                    primaryTypographyProps={{ variant: 'h5' }}
                 />
             </ListItem>
 
