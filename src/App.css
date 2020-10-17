@@ -57,3 +57,7 @@
 .MuiIcon-root {
     overflow: visible;
 }
+
+.MuiDrawer-paperAnchorRight {
+    height: 50%;
+}
