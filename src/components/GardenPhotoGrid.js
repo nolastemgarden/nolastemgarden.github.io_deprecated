@@ -27,18 +27,19 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     root: {
+        width: '100%',
+        height: 'auto',
+        // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
+        transform: 'translateZ(0)',
+
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'space-around',
         overflow: 'hidden',
         backgroundColor: '#222',
+        // backgroundColor: theme.palette.common.black,
     },
-    gridList: {
-        width: '100%',
-        height: 'auto',
-        // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
-        transform: 'translateZ(0)',
-    },
+    
     titleBar: {
         background:
             'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, ' +
@@ -118,25 +119,26 @@ export default function GardenPhotoGrid() {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
-            <GridList 
-                cellHeight={'240'} 
-                spacing={12} 
-                className={classes.gridList}
-                cols={3}
-            >
-                {tileData.map((tile) => (
-                    <GridListTile key={tile.img} cols={tile.wide ? 2 : 1} rows={tile.tall ? 2 : 1}>
-                        <img src={tile.img} alt={tile.title} />
-                        {/* <GridListTileBar
-                            title={tile.title}
-                            titlePosition="bottom"
-                            actionPosition="left"
-                            className={classes.titleBar}
-                        /> */}
-                    </GridListTile>
-                ))}
-            </GridList>
-        </div>
+        <GridList 
+            cellHeight={'240'} 
+            spacing={12} 
+            className={classes.root}
+            cols={3}
+        >
+            {tileData.map((tile) => (
+                <GridListTile 
+                    key={tile.img} 
+                    cols={tile.wide ? 2 : 1} 
+                    rows={tile.tall ? 2 : 1}>
+                    <img src={tile.img} alt={tile.title} />
+                    {/* <GridListTileBar
+                        title={tile.title}
+                        titlePosition="bottom"
+                        actionPosition="left"
+                        className={classes.titleBar}
+                    /> */}
+                </GridListTile>
+            ))}
+        </GridList>
     );
 }
