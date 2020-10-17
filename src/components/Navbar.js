@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../App.css';
 
 // React ROUTER
 import { Link as RouterLink } from "react-router-dom";
@@ -7,6 +7,8 @@ import { Link as RouterLink } from "react-router-dom";
 
 // MY COMPONENTS
 import MobileMenu from "../components/NavbarMenus/MobileMenu";
+import TeachingServicesList from "./NavbarMenus/TeachingServicesList";
+import AboutGardenList from "./NavbarMenus/AboutGardenList";
 
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
@@ -47,6 +49,8 @@ import { findAllByPlaceholderText } from '@testing-library/react';
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
+        backgroundColor: theme.palette.primary.main
+
     },
     paper: {
         marginRight: theme.spacing(2),
@@ -102,6 +106,7 @@ const useStyles = makeStyles((theme) => ({
     mobileBrand: {
         // border: 'solid blue 1px',
         paddingTop: '0.4rem',
+        // paddingBottom: '0.1rem',
         flex: '2 0 60%',
         display: 'flex',
         flexDirection: 'column',
@@ -146,9 +151,13 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center',
         paddingBottom: '0.5rem',
     },
+    desktopMenuDropDown: {
+        backgroundColor: theme.palette.primary.main, // Matches Logo Background
+    },
 
     businessType: {
-        lineHeight: '1.0'
+        lineHeight: '1.0',
+        paddingBottom: '0.1rem'
     },
     menu: {
         // border: 'solid red 1px',
@@ -238,11 +247,13 @@ function DesktopNavbar(props) {
                     </Box>
 
                     <Box className={classes.desktopMenuButtons} >
+                        
                         <TeachingServicesMenu />
 
                         <GardenAboutMenu />
 
                         <ContactPageLink />
+
                     </Box>
                     
                     
@@ -304,44 +315,26 @@ function TeachingServicesMenu() {
                 </Typography>
 
             </Button>
-            <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
-                {({ TransitionProps, placement }) => (
+            <Popper 
+                open={open} 
+                anchorEl={anchorRef.current} 
+                role={undefined} 
+                transition 
+                disablePortal
+            >
+                {({ TransitionProps }) => (
                     <Grow
                         {...TransitionProps}
-                        style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                        style={{ transformOrigin: 'center top' }}
                     >
-                        <Paper>
+                        <Paper className={classes.desktopMenuDropDown}>
                             <ClickAwayListener onClickAway={handleClose}>
-                                <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                                    <MenuItem 
-                                        key={'teach'}
-                                        onClick={handleClose}
-                                        button
-                                        component={RouterLink}
-                                        to='/teach'
-                                    >
-                                        <ListItemIcon className="fas fa-graduation-cap fa-lg" />
-                                        <ListItemText primary={'Teaching Services'} />
-                                    </MenuItem>
-                                    <MenuItem
-                                        key={'teach'}
-                                        onClick={handleClose}
-                                        button
-                                        component={RouterLink}
-                                        to='/teach'
-                                    >
-                                        <ListItemIcon className="fas fa-graduation-cap fa-lg" />
-                                        <ListItemText primary={'Teaching Services'} />
-                                    </MenuItem><MenuItem
-                                        key={'teach'}
-                                        onClick={handleClose}
-                                        button
-                                        component={RouterLink}
-                                        to='/teach'
-                                    >
-                                        <ListItemIcon className="fas fa-graduation-cap fa-lg" />
-                                        <ListItemText primary={'Teaching Services'} />
-                                    </MenuItem>
+                                
+                                <MenuList autoFocusItem={open} 
+                                    id="menu-list-grow" 
+                                    onKeyDown={handleListKeyDown}
+                                >
+                                    <TeachingServicesList />
                                 </MenuList>
                             </ClickAwayListener>
                         </Paper>
@@ -401,17 +394,15 @@ function GardenAboutMenu() {
 
             </Button>
             <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
-                {({ TransitionProps, placement }) => (
+                {({ TransitionProps }) => (
                     <Grow
                         {...TransitionProps}
-                        style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                        style={{ transformOrigin: 'center top' }}
                     >
-                        <Paper>
+                        <Paper className={classes.desktopMenuDropDown}>
                             <ClickAwayListener onClickAway={handleClose}>
                                 <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                                    <AboutGardenList />
                                 </MenuList>
                             </ClickAwayListener>
                         </Paper>
@@ -445,74 +436,4 @@ function ContactPageLink() {
     );
 }
 
-
-function ProjectsMenu() {
-    const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
-    const anchorRef = React.useRef(null);
-
-    const handleToggle = () => {
-        setOpen((prevOpen) => !prevOpen);
-    };
-
-    const handleClose = (event) => {
-        if (anchorRef.current && anchorRef.current.contains(event.target)) {
-            return;
-        }
-        setOpen(false);
-    };
-
-    function handleListKeyDown(event) {
-        if (event.key === 'Tab') {
-            event.preventDefault();
-            setOpen(false);
-        }
-    }
-
-    // return focus to the button when we transitioned from !open -> open
-    const prevOpen = React.useRef(open);
-    React.useEffect(() => {
-        if (prevOpen.current === true && open === false) {
-            anchorRef.current.focus();
-        }
-
-        prevOpen.current = open;
-    }, [open]);
-
-    return (
-        <div className={classes.projectMenu}>
-            <Button
-                className={classes.desktopMenuButton}
-                variant="text"
-                ref={anchorRef}
-                aria-controls={open ? 'menu-list-grow' : undefined}
-                aria-haspopup="true"
-                onClick={handleToggle}
-            >
-                <Typography variant="h5">
-                    Other<br />Projects
-                </Typography>
-                
-            </Button>
-            <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
-                {({ TransitionProps, placement }) => (
-                    <Grow
-                        {...TransitionProps}
-                        style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-                    >
-                        <Paper>
-                            <ClickAwayListener onClickAway={handleClose}>
-                                <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                                    <MenuItem onClick={handleClose}>Logout</MenuItem>
-                                </MenuList>
-                            </ClickAwayListener>
-                        </Paper>
-                    </Grow>
-                )}
-            </Popper>
-        </div>
-    );
-}
 
