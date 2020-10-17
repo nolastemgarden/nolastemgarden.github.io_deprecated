@@ -1,14 +1,11 @@
 import React from 'react';
 
 // MY components
-import PhotoGrid from "../components/GardenPhotoGrid";
-import MobileLandingCards from "../components/MobileLandingCards";
-import DesktopLandingCards from "../components/DesktopLandingCards";
+// import PhotoGrid from "../components/GardenPhotoGrid";
 import Navbar from "../components/Navbar";
 
 // MY images
 import bananas_and_loquat from "../images/bananas_and_loquat.jpg";
-// import logo from "../images/incomplete_logo.png";
 import leaves from "../images/leaves_cropped_for_mobile.jpg";
 // import leaves from "../images/leaves_edited.jpg";
 import turmeric from "../images/turmeric.jpg";
@@ -18,57 +15,29 @@ import bananaPapayaHarvest from "../images/banana-papaya-harvest.JPG"
 // MUI Imports
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
-import AppBar from '@material-ui/core/AppBar';
+import Grid from '@material-ui/core/Grid';
+import GridListTile from '@material-ui/core/GridListTile';
+
+import { spacing } from '@material-ui/system';
+
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
     root: {
-        height: '100vh',
+        minHeight: '100vh',
+        height: 'auto',
         width: '100vw',
         // minHeight: '100vh',
-        // backgroundColor: theme.palette.common.white,
+        backgroundColor: theme.palette.common.black,
+        display: 'flex',
+        flexDirection: 'column',
+        // justifyContent: 'center',
+        alignItems: 'center'
 
     },
-    mobileBody: {
-        // border: 'solid red 1px',
-        // height: 'calc(100% - 3.5rem)',   // 3.5rem is the height of the mobileNavbar 
-        height: 'auto',
-        width: '100%',
-        minHeight: '100vh',
-        backgroundColor: '#222',
-        backgroundPosition: 'center top',
-        backgroundRepeat: 'repeat-y',
-        backgroundSize: 'contain',
-    },
-    desktopBody: {
-        height: 'auto',
-        width: '100%',
-        minHeight: '100vh',
-        backgroundImage: `
-            linear-gradient(90deg, 
-                rgba(58,94,22,0.70) 0%, 
-                rgba(58,94,22,0.80) 100%),
-            url(${leaves})
-        `,
-        backgroundPosition: 'center top',
-        backgroundRepeat: 'repeat-y',
-        backgroundSize: 'cover',
-    },
-    desktopContainer: {
-        backgroundImage: `
-            linear-gradient(90deg, 
-                rgba(58,94,22,0.00) 0%, 
-                rgba(58,94,22,0.50) 5%,
-                rgba(58,94,22,0.70) 10%, 
-                rgba(58,94,22,0.70) 90%,
-                rgba(58,94,22,0.50) 95%,
-                rgba(58,94,22,0.00) 100%)
-        `,
-        backgroundPosition: 'center top',
-        // yOffset: '12rem',
-        backgroundRepeat: 'repeat-y',
-        backgroundSize: 'cover',
+    spacerBox: {
+        // border: 'solid red 2px'
     },
 
     text: {
@@ -77,31 +46,15 @@ const useStyles = makeStyles((theme) => ({
         // fontSize: '7vw'
     },
     header: {
-        paddingTop: '5.0rem',
+        paddingBottom: '1.0rem'
     },
     body: {
-        padding: '2.0rem',
+        
+        paddingBottom: '1.5rem',
+        maxWidth: '640px'
     },
 
-    desktopTitleText: {
-        color: theme.palette.common.white,
-        padding: '2.5rem',
-        paddingTop: '12.0rem',
-        paddingBottom: '3.0rem',
-        textShadow: '0.15rem 0.15rem 0.3rem black',
-    },
-    desktopSubtitleText: {
-        // border: 'solid red 1px',
-        color: theme.palette.common.white,
-        padding: '1rem 5rem 2rem 5rem',
-        // padding: '5rem',
-        textShadow: '0.12rem 0.12rem 0.20rem black',
-    },
-
-    landingHeader: {
-        width: '100%',
-        height: '3rem',
-    },
+    
     grid: {
         // border: 'solid red 1px',
         height: 'auto',
@@ -119,25 +72,36 @@ export default function GardenGalleryPage(props) {
     return (
         <Box className={classes.root}  >
             <Navbar />
-            <MobileBody />
-            <DesktopBody />
+            <PageBody />
         </Box>
     )
 }
 
-function MobileBody(props) {
+function PageBody(props) {
     const classes = useStyles();
     return (
-        <Box
-            className={classes.mobileBody}
-            display={{ xs: 'block', lg: 'none' }}
+        <Container
+            className={classes.root}
+            maxWidth='md'
         >
+            <Box className={classes.spacerBox}
+                py={4}
+                display={{ xs: 'block', lg: 'none' }}
+            >
+                MOBILE SPACER BOX
+            </Box>
+            <Box className={classes.spacerBox}
+                py={8}
+                display={{ xs: 'none', lg: 'block' }}
+            >
+                DESKTOP SPACER BOX
+            </Box>
             <Typography
                 className={[classes.text, classes.header]}
                 align='center'
                 color='textPrimary'
                 component='h1'
-                variant='h2'
+                variant='h1'
             >
                 What We Grow
             </Typography>
@@ -149,131 +113,111 @@ function MobileBody(props) {
                 component='h2'
                 variant='body1'
             >
-                The garden is home to dozens of species of fruit trees, edible flowers,
-                medicinal herbs, and vegetables. We are currently seeking buyers for 
-                our surplus banana, papaya, and turmeric. 
+                I was inspired to garden by my early experiences foraging for wild edibles  
+                and my garden is still visibly influenced by this background. We grow a lot of 
+                banana, papaya, and turmeric but the real focus is always on bio-diversity.  
+                The STEM Garden is home to several dozen species of fruit trees, edible flowers,
+                medicinal herbs, and vegetables. While certain crops are planted in neat rows 
+                and managed carefully, many other plants are naturalized here and are allowed 
+                to grow wherever they volunteer. 
             </Typography>
-        
-            <Box
-                className={classes.smText}
-                display={{ xs: 'none', sm: 'block' }}
-            >
-                <Typography
-                    className={classes.mobileSubtitleText}
-                    align='justify'
-                    color='textPrimary'
-                    component='h2'
-                    variant='body1'
-                >
-                    Established in 2016, the STEM Garden started as a blighted lot in New Orleans
-                    St. Claude neighborhood and gradually evolved into an urban food forest. 
-                    We are currently seeking a market for our surplus banana, papaya, and turmeric.
-                </Typography>
-            </Box>
 
-            <PhotoGridOne />
-        </Box>
+            <Typography
+                className={[classes.text, classes.body]}
+                align='justify'
+                color='textPrimary'
+                component='h2'
+                variant='body1'
+            >
+                The garden is small, only 1/6th of an acre, but look close as you walk around and it always has a surprise!
+
+                Section on Wildlife
+
+                Early Days
+
+                flowers
+
+                Banana Details
+
+                Papaya Details
+
+                
+            </Typography>
+
+            <PhotoGrid />
+
+        </Container>
     )
 }
 
-
-
-function PhotoGridOne(props) {
+function PhotoGrid(props) {
     const classes = useStyles();
+
     return (
-        <Box
-            className={classes.desktopBody}
-            display={{ xs: 'none', lg: 'block' }}
+        <Grid container
         >
-            <Container
-                className={classes.desktopContainer}
-                maxWidth='md'
-                disableGutters
-            >
-                <Typography
-                    className={classes.desktopTitleText}
-                    align='center'
-                    color='textPrimary'
-                    component='h1'
-                    variant='h2'
-                >
-                    COPIED THE LANDING PAGE
-                </Typography>
-
-                <Box
-                    className={classes.smText}
-                    display={{ xs: 'none', sm: 'block' }}
-                >
-                    <Typography
-                        className={classes.desktopSubtitleText}
-                        align='justify'
-                        color='textPrimary'
-                        component='h2'
-                        variant='h5'
-                    >
-                        COPIED THE LANDING PAGE
-                    </Typography>
-                </Box>
-
-                <Box
-                    className={classes.cardArea}
-                    display={{ xs: 'block' }}
-                >
-                    <MobileLandingCards />
-                </Box>
-            </Container>
-        </Box>
-
-    )
+            {tileData.map((tile) => (
+                <GridListTile
+                    key={tile.img}
+                    cols={tile.wide ? 2 : 1}
+                    rows={tile.tall ? 2 : 1}>
+                    <img src={tile.img} alt={tile.title} />
+                    {/* <GridListTileBar
+                        title={tile.title}
+                        titlePosition="bottom"
+                        actionPosition="left"
+                        className={classes.titleBar}
+                    /> */}
+                </GridListTile>
+            ))}
+        </Grid>
+    );
 }
 
+const tileData = [
+    {
+        img: bananaPapayaHarvest,
+        title: 'Banana Papaya Harvest',
+        author: 'Nigel',
+        wide: true,
+        tall: true,
+    },
+    {
+        img: turmeric,
+        title: 'turmeric',
+        author: 'Nigel',
+        wide: false,
+        tall: false,
+    },
+    {
+        img: bananas_and_loquat,
+        title: 'Bananas and Loquat',
+        author: 'Nigel',
+        wide: false,
+        tall: false,
+    },
+    {
+        img: turmeric,
+        title: 'turmeric',
+        author: 'Nigel',
+        wide: false,
+        tall: false,
+    },
+    {
+        img: bananaPapayaHarvest,
+        title: 'Banana Papaya Harvest',
+        author: 'Nigel',
+        wide: false,
+        tall: true,
+    },
+    {
+        img: turmeric,
+        title: 'turmeric',
+        author: 'Nigel',
+        wide: true,
+        tall: false,
+    }];
 
-function DesktopBody(props) {
-    const classes = useStyles();
-    return (
-        <Box
-            className={classes.desktopBody}
-            display={{ xs: 'none', lg: 'block' }}
-        >
-            <Container
-                className={classes.desktopContainer}
-                maxWidth='md'
-                disableGutters
-            >
-                <Typography
-                    className={classes.desktopTitleText}
-                    align='center'
-                    color='textPrimary'
-                    component='h1'
-                    variant='h2'
-                >
-                    COPIED THE LANDING PAGE
-                </Typography>
-
-                <Box
-                    className={classes.smText}
-                    display={{ xs: 'none', sm: 'block' }}
-                >
-                    <Typography
-                        className={classes.desktopSubtitleText}
-                        align='justify'
-                        color='textPrimary'
-                        component='h2'
-                        variant='h5'
-                    >
-                        COPIED THE LANDING PAGE
-                    </Typography>
-                </Box>
-
-                <Box
-                    className={classes.cardArea}
-                    display={{ xs: 'block' }}
-                >
-                    <MobileLandingCards />
-                </Box>
-            </Container>
-        </Box>
-
-    )
-}
-
+// Established in 2016, the STEM Garden started as a blighted lot in New Orleans
+// St.Claude neighborhood and gradually evolved into an urban food forest.
+// We are currently seeking a market for our surplus banana, papaya, and turmeric.
