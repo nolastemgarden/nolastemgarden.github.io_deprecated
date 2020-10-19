@@ -1,14 +1,14 @@
 import React from 'react';
-import '../App.css';
+// import '../../App.css';
 
 // React ROUTER
 import { Link as RouterLink } from "react-router-dom";
 
 
 // MY COMPONENTS
-import MobileMenu from "../components/NavbarMenus/MobileMenu";
-import TeachingServicesList from "./NavbarMenus/TeachingServicesList";
-import AboutGardenList from "./NavbarMenus/AboutGardenList";
+import MobileMenu from "./MobileMenu";
+import TeachingServicesList from "./TeachingServicesList";
+import AboutGardenList from "./AboutGardenList";
 
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
@@ -19,7 +19,7 @@ import MenuList from '@material-ui/core/MenuList';
 
 
 // Image Imports
-import logo from "../images/nsgLogoSnipped.png";
+import logo from "../../images/nsgLogoSnipped.png";
 
 
 // MATERIAL-UI COMPONENTS
@@ -152,6 +152,7 @@ const useStyles = makeStyles((theme) => ({
         paddingBottom: '0.5rem',
     },
     desktopMenuDropDown: {
+        border: 'solid white 1px',
         backgroundColor: theme.palette.primary.main, // Matches Logo Background
     },
 
