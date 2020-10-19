@@ -10,13 +10,13 @@ import React from 'react';
 import { Link as RouterLink } from "react-router-dom";
 
 // MY images
-import chessclub from "../images/chess_demo_board.jpg";
+// import chessclub from "../images/chess_demo_board.jpg";
 // import chessclub from "../images/chess_club_college_track.jpg";
-import balance_scale from "../images/balance_scale_waldorf.jpg";
-import multiple_choice from "../images/multiple_choice_test.jpg";
-import banana_papaya_harvest from "../images/banana-papaya-harvest.JPG";
-import profile_pic from "../images/profile-pic.jpg";
-import fret_measuring from "../images/guitar_fret_spacing_crop1.jpg";
+// import balance_scale from "../images/balance_scale_waldorf.jpg";
+// import multiple_choice from "../images/multiple_choice_test.jpg";
+// import banana_papaya_harvest from "../images/banana-papaya-harvest.JPG";
+// import profile_pic from "../images/profile-pic.jpg";
+// import fret_measuring from "../images/guitar_fret_spacing_crop1.jpg";
 
 // MUI Imports
 import Container from '@material-ui/core/Container';
@@ -95,7 +95,7 @@ export default function MobileLandingCards(props) {
                         <CardActionArea>
                             <CardMedia
                                 className={classes.cardImage}
-                                image={fret_measuring}
+                                // image={fret_measuring}
                                 alt="Student measuring a guitar"
                                 title="Student measuring a guitar"
                             />
@@ -135,7 +135,7 @@ export default function MobileLandingCards(props) {
                             <CardMedia
                                 className={classes.cardImage}
                                 alt="Homegrown Bananas and Papayas"
-                                image={banana_papaya_harvest}
+                                // image={banana_papaya_harvest}
                                 title="Homegrown Bananas and Papayas"
                             />
                             <CardContent>
@@ -182,7 +182,7 @@ export default function MobileLandingCards(props) {
                         <CardActionArea>
                             <CardMedia
                                 className={classes.cardImage}
-                                image={chessclub}
+                                // image={chessclub}
                                 alt="Students playing chess"
                                 title="Students playing chess"
                             />
@@ -231,7 +231,7 @@ export default function MobileLandingCards(props) {
                         <CardActionArea>
                             <CardMedia
                                 className={classes.cardImage}
-                                image={profile_pic}
+                                // image={profile_pic}
                                 title="founder's profile picture"
                                 alt="founder's profile picture"
                             />
