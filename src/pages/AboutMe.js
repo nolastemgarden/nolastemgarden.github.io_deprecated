@@ -1,13 +1,13 @@
 import React from 'react';
 
 // MY components
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 // import LandingHeader from "../components/LandingHeader";
 // import LandingCards from "../components/LandingCards";
 
 // MY images
 import bamboo from "../images/bamboo.jpg";
-import logo from "../images/incomplete_logo.png";
+// import logo from "../images/incomplete_logo.png";
 import street_view_before from "../images/garden_before.jpg";
 
 

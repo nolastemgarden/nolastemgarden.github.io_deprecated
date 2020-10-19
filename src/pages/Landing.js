@@ -1,17 +1,11 @@
 import React from 'react';
 
 // MY components
-// import LandingHeader from "../components/LandingHeader";
-import MobileLandingCards from "../components/MobileLandingCards";
-import DesktopLandingCards from "../components/DesktopLandingCards";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar/Navbar";
+import LandingCards from "../components/LandingCards";
 
 // MY images
-import bananas_and_loquat from "../images/bananas_and_loquat.jpg";
-// import logo from "../images/incomplete_logo.png";
 import leaves from "../images/leaves_cropped_for_mobile.jpg";
-// import leaves from "../images/leaves_edited.jpg";
-import turmeric from "../images/turmeric.jpg";
 
 // MUI Imports
 import Container from '@material-ui/core/Container';
@@ -193,7 +187,7 @@ function MobileBody(props) {
                 className={classes.cardArea}
                 display={{ xs: 'block' }}
             >
-                <MobileLandingCards />
+                <LandingCards />
             </Box>
         </Box>
     )
@@ -247,7 +241,7 @@ function DesktopBody(props) {
                     className={classes.cardArea}
                     display={{ xs: 'block' }}
                 >
-                    <MobileLandingCards />
+                    <LandingCards />
                 </Box>
             </Container>
         </Box>
