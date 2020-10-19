@@ -159,7 +159,7 @@ export default function MobileLandingCards(props) {
                             </Button>
                             <Button
                                 component={RouterLink}
-                                to='/garden_gallery'
+                                to='/photo_gallery'
                                 variant='contained'
                                 size="medium"
                                 color="primary"
