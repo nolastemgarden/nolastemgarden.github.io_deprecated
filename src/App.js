@@ -65,9 +65,14 @@ export default function App() {
                         </Route>
 
                         {/* TEACHING SERVICES */}
-                        <Route path="/teach">
-                            <TeachPage />
-                        </Route>
+                        <Route path="/teach"
+                            component={TeachPage}
+                        />
+                        {/* <Route path="/teach/:tab"
+                            render={(props) => (
+                                <TeachPage {...props} />
+                            )}
+                        /> */}
 
                         <Route path="/math_games">
                             <MathGamesPage />
@@ -96,6 +101,7 @@ export default function App() {
 
                         <Route path="/my_projects">
                             <MyProjectsPage />
+                            {/* <MathGamesPage /> */}
                         </Route> 
 
                         {/* <Route path="/contact">

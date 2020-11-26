@@ -23,14 +23,12 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Icon from '@material-ui/core/Icon';
 
+// MATERIAL-UI SYSTEM
+import { fontSize } from '@material-ui/system';
+
 // ICONS
 import MenuIcon from '@material-ui/icons/Menu';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import { fontSize } from '@material-ui/system';
-import SchoolIcon from '@material-ui/icons/School';
-import EcoIcon from '@material-ui/icons/Eco'; 
-import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
+
 
 const useStyles = makeStyles(theme => ({
     list: {
@@ -53,7 +51,7 @@ const useStyles = makeStyles(theme => ({
     menu: {
         // border: 'solid red 1px',
         backgroundColor: theme.palette.primary.main,
-        // height: '100%',
+        height: '100%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-end'
@@ -79,24 +77,16 @@ export default function MobileMenu() {
         setState({ ...state, [anchor]: open });
     };
 
-    const list = (anchor) => (
-        <Box
-            // className={clsx(classes.list, {
-            //     [classes.fullList]: anchor === 'top' || anchor === 'bottom',
-            // })}
-            className={classes.list}
+    const list = () => (
+        <Box className={classes.list}
             role="presentation"
-            onClick={toggleDrawer(anchor, false)}
-            onKeyDown={toggleDrawer(anchor, false)}
+            onClick={toggleDrawer('right', false)}
+            onKeyDown={toggleDrawer('right', false)}
         >
-            
-            <TeachingServicesList />
-
-                <Divider />
-
-            <GardenNavigationList />
-            
-            
+            <List>
+                <TeachingServicesList />
+                <GardenNavigationList />
+            </List>
         </Box>
     );
 

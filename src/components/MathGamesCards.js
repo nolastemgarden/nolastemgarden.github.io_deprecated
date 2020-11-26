@@ -138,9 +138,9 @@ export default function LandingCards(props) {
                                     variant="body2"
                                     color="textPrimary"
                                 >
-                                    Established in 2016, the garden started as a blighted lot and gradually 
-                                    evolved into an oasis of turmeric and fruit trees.  
-                                     
+                                    Established in 2016, the garden started as a blighted lot and gradually
+                                    evolved into an oasis of turmeric and fruit trees.
+
                                 </Typography>
                             </CardContent>
                         </CardActionArea>
@@ -186,10 +186,10 @@ export default function LandingCards(props) {
                                     variant="body2"
                                     color="textPrimary"
                                 >
-                                    Playing chess is a fun way for kids to develop their skills at problem solving, 
-                                    time-management, and communication, as well as persistence and sportsmanship. 
-                                    We offer private and small group lessons and partner with schools to help 
-                                    them establish chess clubs. 
+                                    Playing chess is a fun way for kids to develop their skills at problem solving,
+                                    time-management, and communication, as well as persistence and sportsmanship.
+                                    We offer private and small group lessons and partner with schools to help
+                                    them establish chess clubs.
                                 </Typography>
                             </CardContent>
                         </CardActionArea>
@@ -215,7 +215,7 @@ export default function LandingCards(props) {
                         </CardActions>
                     </Card>
                 </Grid>
-               
+
 
                 {/* MEET NIGEL */}
                 <Grid item xs={12} sm={6} >
@@ -231,7 +231,7 @@ export default function LandingCards(props) {
                                 <Typography variant="h5" component="h2">
                                     Meet Nigel
                             </Typography>
-                                <Typography 
+                                <Typography
                                     variant="body2"
                                     color="textPrimary"
                                 >
@@ -265,7 +265,7 @@ export default function LandingCards(props) {
             </Grid>
         </Container>
 
-        
+
 
     )
 

@@ -2,6 +2,7 @@ import React from 'react';
 
 // MY components
 import Navbar from "../components/Navbar/Navbar";
+import SpacerBox from "../components/Navbar/SpacerBox";
 import LandingCards from "../components/LandingCards";
 
 // MY images
@@ -18,9 +19,6 @@ const useStyles = makeStyles((theme) => ({
     root: {
         height: '100vh',
         width: '100vw',
-        // minHeight: '100vh',
-        // backgroundColor: theme.palette.common.white,
-       
     },
     mobileBody: {
         // border: 'solid red 1px',
@@ -39,9 +37,10 @@ const useStyles = makeStyles((theme) => ({
         backgroundSize: 'contain',
     },
     desktopBody: {
+        // border: 'solid red 1px',
         height: 'auto',
-        width: '100%',
         minHeight: '100vh',
+        width: '100%',
         backgroundImage: `
             linear-gradient(90deg, 
                 rgba(58,94,22,0.70) 0%, 
@@ -56,10 +55,10 @@ const useStyles = makeStyles((theme) => ({
         backgroundImage: `
             linear-gradient(90deg, 
                 rgba(58,100,22,0.00) 0%, 
-                rgba(58,100,22,0.50) 10%,
-                rgba(58,100,22,0.70) 15%, 
-                rgba(58,100,22,0.70) 85%,
-                rgba(58,100,22,0.50) 90%,
+                rgba(58,100,22,0.50) 11%,
+                rgba(58,100,22,0.70) 14%, 
+                rgba(58,100,22,0.70) 86%,
+                rgba(58,100,22,0.50) 89%,
                 rgba(58,100,22,0.00) 100%)
         `,
         backgroundPosition: 'center top',
@@ -70,49 +69,23 @@ const useStyles = makeStyles((theme) => ({
     },
 
 
-    mobileTitleText: {
-        color: theme.palette.common.white,
-        // maxWidth: '90%',
-        padding: '2.5rem',
-        paddingTop: '7.0rem',
-        paddingBottom: '3.0rem',
-        textShadow: '0.15rem 0.15rem 0.3rem black',
-        // fontSize: 'calc(1rem + 5vw)',
-        fontSize: '7vw'
-    },
-    mobileSubtitleText: {
+    titleText: {
         // border: 'solid red 1px',
         color: theme.palette.common.white,
-        padding: '1rem 3rem 1rem 3rem',
-        textShadow: '0.12rem 0.12rem 0.20rem black',
-    },
-
-    desktopTitleText: {
-        color: theme.palette.common.white,
-        padding: '2.5rem',
-        paddingTop: '12.0rem',
-        paddingBottom: '3.0rem',
+        maxWidth: '100%',
+        padding: '4.0rem 3.0rem',
         textShadow: '0.15rem 0.15rem 0.3rem black',
+        fontSize: 'min(2.5rem, 7vw)'
     },
-    desktopSubtitleText: {
-        // border: 'solid red 1px',
+    subtitleText: {
         color: theme.palette.common.white,
-        padding: '1rem 5rem 2rem 5rem',
-        // padding: '5rem',
+        padding: '0rem 4rem',
         textShadow: '0.12rem 0.12rem 0.20rem black',
-    },
-
-    landingHeader: {
-        width: '100%',
-        height: '3rem',
     },
     cardArea: {
-        // border: 'solid red 1px',
-        height: 'auto',
-        width: '100%',
-        padding: '1rem'
-
+        padding: '2.0rem',
     },
+
 }));
 
 
@@ -134,60 +107,34 @@ function MobileBody(props) {
     return (
         <Box 
             className={classes.mobileBody}
-            display={{ xs: 'block', lg: 'none' }}  
+            display={{ xs: 'block', md: 'none' }}  
         >
             <Typography
-                className={classes.mobileTitleText}
+                className={classes.titleText}
                 align='center'
                 color='textPrimary'
                 component='h1'
                 variant='h2'
             >
-                Sowing the seeds of life-long learning and DIY-spirit
-                through integrated teaching of math, physics, biology,
-                chess, and computer programming.
+                Sowing the seeds of life&#8209;long learning and DIY&#8209;spirit
+                through hands&#8209;on teaching of math, physics, chess, biology,
+                and programming.
             </Typography>
-
-            <Box
-                className={classes.xsText}
-                display={{ xs: 'block', sm: 'none' }}
+            <Typography
+                className={classes.subtitleText}
+                align='justify'
+                color='textPrimary'
+                component='h2'
+                variant='body1'
             >
-                <Typography
-                    className={classes.mobileSubtitleText}
-                    align='justify'
-                    color='textPrimary'
-                    component='h2'
-                    variant='body1'
-                >
-                    The STEM Garden is an off-grid urban teaching garden, rooted in New Orleans,
-                    offering private tutoring and small group lessons, both in the garden and online.
-                </Typography>
-            </Box>
-
-            <Box
-                className={classes.smText}
-                display={{ xs: 'none', sm: 'block' }}
-            >
-                <Typography
-                    className={classes.mobileSubtitleText}
-                    align='justify'
-                    color='textPrimary'
-                    component='h2'
-                    variant='body1'
-                >
-                    The STEM Garden is an off-grid urban teaching garden, rooted in New Orleans.
-                    We offer private tutoring and small group lessons, both in the garden and online.
-                    We help students meet all common core math standards but see learning math as 
-                    so much more than that! We emphacize the playful side of mathematical thinking and
-                    use many puzzles, games, hands-on projects to engage young imaginations.
+                The STEM Garden is an off-grid urban teaching garden, rooted in New Orleans.
+                We offer private tutoring and small group lessons, both in the garden and online.
+                We help students meet all common core math standards but see learning math as
+                so much more than that! We emphacize the playful side of mathematical thinking and
+                use many puzzles, games, hands-on projects to engage young imaginations.
             </Typography>
-            </Box>
-            
-            <Box
-                className={classes.cardArea}
-                display={{ xs: 'block' }}
-            >
-                <LandingCards />
+            <Box className={classes.cardArea} >
+                <LandingCards  />
             </Box>
         </Box>
     )
@@ -199,7 +146,7 @@ function DesktopBody(props) {
     return ( 
         <Box
             className={classes.desktopBody}
-            display={{ xs: 'none', lg: 'block' }}
+            display={{ xs: 'none', md: 'block' }}
         >
             <Container
                 className={classes.desktopContainer}
@@ -207,15 +154,15 @@ function DesktopBody(props) {
                 // disableGutters
             >
                 <Typography
-                    className={classes.desktopTitleText}
+                    className={classes.titleText}
                     align='center'
                     color='textPrimary'
                     component='h1'
                     variant='h2'
                 >
-                    Sowing the seeds of life-long learning and DIY-spirit
-                    through integrated teaching of math, physics, biology,
-                    chess, and computer programming.
+                    Sowing the seeds of life&#8209;long learning and DIY&#8209;spirit
+                    through integrated teaching of math, physics, chess, biology,
+                    and computer programming.
                 </Typography>
 
                 <Box
@@ -223,7 +170,7 @@ function DesktopBody(props) {
                     display={{ xs: 'none', sm: 'block' }}
                 >
                     <Typography
-                        className={classes.desktopSubtitleText}
+                        className={classes.subtitleText}
                         align='justify'
                         color='textPrimary'
                         component='h2'
@@ -231,16 +178,13 @@ function DesktopBody(props) {
                     >
                         The STEM Garden is an off-grid urban teaching garden, rooted in New Orleans.
                         We offer private tutoring and small group lessons, both in the garden and online.
-                        We help students excell on the SAT and ACT and meet all Common Core curriculum standards, 
+                        We help students excell on the SAT and ACT and meet all Common Core math standards, 
                         but we see learning math as so much more than that! We emphacize the playful side of 
                         mathematical thinking and make use of many puzzles, games, and hands-on projects to engage young imaginations.
                     </Typography>
                 </Box>
 
-                <Box
-                    className={classes.cardArea}
-                    display={{ xs: 'block' }}
-                >
+                <Box className={classes.cardArea}  >
                     <LandingCards />
                 </Box>
             </Container>
