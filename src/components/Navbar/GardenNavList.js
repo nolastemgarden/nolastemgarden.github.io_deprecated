@@ -2,10 +2,6 @@ import React from 'react';
 
 // React ROUTER
 import { Link as RouterLink } from "react-router-dom";
-
-
-
-import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 
 // MATERIAL-UI COMPONENTS
@@ -38,18 +34,24 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default function GardenNavigationList() {
+export default function GardenNavigationList(props) {
     const classes = useStyles();
+    const handleClose = props.handleClose
 
     return (
         <React.Fragment>
-            
             <ListItem
                 key={'our_story'}
                 className={classes.listItem}
                 button
+                onClick={handleClose}
                 component={RouterLink}
-                to='/our_story'
+                to={{
+                    pathname: '/garden',
+                    state: {
+                        selectedTab: 'our_story',
+                    }
+                }}
             >
                 <Icon className={"fas fa-leaf fa-2x"}
                     classes={{ root: classes.icon }}
@@ -61,17 +63,23 @@ export default function GardenNavigationList() {
             </ListItem>
 
             <ListItem
-                key={'gallery'}
+                key={'whats_growing'}
                 className={classes.listItem}
                 button
+                onClick={handleClose}
                 component={RouterLink}
-                to='/photo_gallery'
+                to={{
+                    pathname: '/garden',
+                    state: {
+                        selectedTab: 'whats_growing',
+                    }
+                }}
             >
                 <Icon className="fas fa-camera fa-2x"
                     classes={{ root: classes.icon }}
                 />
                 <ListItemText 
-                    primary={'Photo Gallery'} 
+                    primary={"What's Growing"} 
                     primaryTypographyProps={{variant: 'h5'}}
                 />
             </ListItem>
@@ -80,6 +88,7 @@ export default function GardenNavigationList() {
                 key={'for_sale'}
                 className={classes.listItem}
                 button
+                onClick={handleClose}
                 component={RouterLink}
                 to='/produce_for_sale'
             >

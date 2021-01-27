@@ -15,8 +15,8 @@ import TeachPage from "./pages/Teach";
 import MathGamesPage from "./pages/MathGames";
 import PuzzleCollectionPage from "./pages/PuzzleCollection"
 
-import GardenStoryPage from "./pages/GardenStory";
-import GardenGalleryPage from "./pages/GardenGallery";
+import GardenPage from "./pages/Garden.js";
+import GardenStoryPage from "./pages/OurStory";
 import AboutMePage from "./pages/AboutMe";
 import MyProjectsPage from "./pages/MyProjects";
 // import ContactPage from "./pages/Contact";
@@ -86,9 +86,9 @@ export default function App() {
 
 
                         {/* GARDEN STUFF */}
-                        <Route path="/photo_gallery">
-                            <GardenGalleryPage />
-                        </Route> 
+                        <Route path="/garden" 
+                            component={GardenPage}
+                        /> 
 
                         <Route path="/our_story">
                             <GardenStoryPage />
